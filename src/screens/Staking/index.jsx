@@ -419,7 +419,7 @@ useEffect(()=>{
               </div>
               <div className="tw-flex tw-pt-3 tw-justify-between tw-items-center">
                 <p className="tw-m-0 tw-text-white tw-font-normal tw-text-sm sm:tw-text-base">Fixed APY:</p>
-                <p className="tw-m-0 tw-text-white tw-text-sm sm:tw-text-base">300%</p>
+                <p className="tw-m-0 tw-text-white tw-text-sm sm:tw-text-base">200%</p>
               </div>
             </div>
 

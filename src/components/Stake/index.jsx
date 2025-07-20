@@ -59,7 +59,7 @@ const StakeComponent = (props) => {
                <div className=" col-md-12">
                 <div className=" tw-flex tw-gap-6 tw-items-center   tw-bg-lightBlue   tw-rounded-3xl  p-4">
                   <div  className=" tw-relative">
-                    <img src={require('../../assets/images/profile.png')} className=" tw-border tw-border-primary tw-rounded-full" alt="" />
+                    <img src={require('../../assets/images/logo1.png')} className=" tw-border tw-border-primary tw-rounded-full" alt="" />
 {props.rank? props.rank.map((validateTypedData,index)=>{
                   
                   <div className="   tw-flex tw-gap-1 tw-bg-primary tw-absolute tw-bottom-0 tw-w-full tw-rounded-full tw-px-2  tw-py-1"> 
