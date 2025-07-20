@@ -2,11 +2,11 @@
 import React from "react";
 
 const teamData = [
-  { number: 1, bonus: "$45k"},
-  { number: 2, bonus: "$90k",},
-  { number: 3, bonus: "$180k", },
-  { number: 4, bonus: "$300k",},
-  { number: 5, bonus: "$3M",  },
+  { number: 1,amount:"45k" ,bonus: "$45k"},
+  { number: 2, amount:"90k" ,bonus: "$90k",},
+  { number: 3, amount:"180k" ,bonus: "$180k", },
+  { number: 4, amount:"300k" ,bonus: "$300k",},
+  { number: 5, amount:"3M" ,bonus: "$3M",  },
 ];
 
 
@@ -23,8 +23,9 @@ const LeaderShipModal= ({ isOpen, onClose }) => {
         </div>
 
         <div className="tw-mt-3">
-          <div className="tw-grid tw-rounded-md  tw-py-2 tw-grid-cols-2 tw-text-center tw-text-sm tw-font-medium tw-bg-primary tw-text-white tw-rounded-t-md tw-py-1">
+          <div className="tw-grid tw-rounded-md  tw-py-2 tw-grid-cols-3 tw-text-center tw-text-sm tw-font-medium tw-bg-primary tw-text-white tw-rounded-t-md tw-py-1">
             <div>Rank</div>
+            <div>Amount</div>
             <div>Bonus</div>
             
           </div>
@@ -32,9 +33,11 @@ const LeaderShipModal= ({ isOpen, onClose }) => {
             {teamData.map((member, index) => (
               <div
                 key={index}
-                className="tw-grid tw-grid-cols-2  tw-border-b tw-text-center tw-text-sm tw-py-2 border-b tw-border-gray-700 last:tw-border-b-0 hover:tw-bg-primary"
+                className="tw-grid tw-grid-cols-3  tw-border-b tw-text-center tw-text-sm tw-py-2 border-b tw-border-gray-700 last:tw-border-b-0 hover:tw-bg-primary"
               >
                 <div>{member.number}</div>
+                <div>{member.amount}</div>
+
                 <div>{member.bonus}</div>
               </div>
             ))}
