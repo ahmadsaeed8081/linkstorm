@@ -2,11 +2,11 @@
 import React from "react";
 
 const teamData = [
-  { number: 1,amount:"45k" ,bonus: "$45k"},
-  { number: 2, amount:"90k" ,bonus: "$90k",},
-  { number: 3, amount:"180k" ,bonus: "$180k", },
-  { number: 4, amount:"300k" ,bonus: "$300k",},
-  { number: 5, amount:"3M" ,bonus: "$3M",  },
+  { number: 1,amount:"45k" ,bonus: "$500"},
+  { number: 2, amount:"90k" ,bonus: "$1.5k",},
+  { number: 3, amount:"180k" ,bonus: "$3k", },
+  { number: 4, amount:"300k" ,bonus: "$5k",},
+  { number: 5, amount:"3M" ,bonus: "$15k",  },
 ];
 
 
