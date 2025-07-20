@@ -211,7 +211,7 @@ try {
     address: cont_address,
     functionName: "withdrawReward", 
     args: [
-      (Number(withdraw_Amount) * exorUsdPrice) * 10**6
+      (Number(withdraw_Amount)) * 10**6
     ],
 
   });
@@ -346,7 +346,7 @@ set_levelEarning(arr.levelEarning);
 set_RoiEarning(Number(arr.roi_earning))
 set_todayEarning(Number(arr.today_earning))
 set_MatchingEarning(Number(arr.matching_ear))
-set_exorUsdPrice(Number(exorUsdPrice)/10**6)
+// set_exorUsdPrice(Number(exorUsdPrice)/10**6)
 set_team(team)
 set_refCount(Level_count);
 set_Allinvestment(allInvestments)
