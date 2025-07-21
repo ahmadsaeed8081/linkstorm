@@ -41,7 +41,7 @@ const TeamMemberShipModal= ({ isOpen, onClose,directs_members }) => {
           <div className="tw-grid tw-rounded-md  tw-py-2 tw-grid-cols-3 tw-text-center tw-text-sm tw-font-medium tw-bg-primary tw-text-white tw-rounded-t-md tw-py-1">
             <div>Number</div>
             <div>Address</div>
-            <div>Earning</div>
+            <div>Investment</div>
           </div>
           <div className=" tw-bg-[#001530] tw-mt-3 tw-h-72 tw-overflow-y-auto tw-rounded-lg">
             {isConnected ? directs_members.members.map((member, index) => (

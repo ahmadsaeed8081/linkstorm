@@ -339,7 +339,7 @@ set_total_withdraw_reward(user.totalWithdraw_reward);
 setbusiness(business);
 settotalReferralsEarning(user[7])
 set_directs(user[6])
-set_upline(user.upline)
+set_upline(user.referralFrom)
 set_Level_locking(Level_locking)
 set_totalEarning(Number(arr.total_earning))
 set_levelEarning(arr.levelEarning);

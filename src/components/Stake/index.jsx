@@ -17,7 +17,7 @@ import { polygon, polygonAmoy } from "wagmi/chains";
 import Loader from "../../../src/components/Loader.js";
 
 const StakeComponent = (props) => {
-  const [tabs,setTabs] = useState('staking')
+  const [tabs,setTabs] = useState('roi')
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const addressCopy_notify = () => toast("address is Copied!");
@@ -35,11 +35,11 @@ const StakeComponent = (props) => {
             <button onClick={()=>setTabs('staking')} className={`  ${tabs==="staking"?'tw-bg-primary':''} tw-rounded-full tw-py-2 tw-px-10 tw-font-light tw-text-white`}>Staking</button>
             <button onClick={()=>setTabs('roi')} className={` tw-text-primary  ${tabs==="roi"?'tw-bg-primary':''} tw-rounded-full tw-py-2 tw-px-10 tw-font-light tw-text-white `}>ROI</button>
           </div>
-          <div className=" row tw-pb-4">
+          {/* <div className=" row tw-pb-4">
              <div className=" col-md-4 tw-ml-auto">
                <input className=" tw-w-full tw-p-3 tw-rounded-md tw-outline-none tw-text-sm" placeholder="Search..." />
               </div>
-          </div>
+          </div> */}
         <div className="row    g-5">
           <div className="col-lg-6">
            <div className=" row">

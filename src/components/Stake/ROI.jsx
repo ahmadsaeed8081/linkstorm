@@ -134,7 +134,7 @@ const ROI = (props) => {
             <div className="tw-py-4 tw-flex tw-flex-col sm:tw-flex-row tw-justify-between tw-items-start xs:tw-items-center tw-gap-3">
               <div className="tw-w-full sm:tw-w-7/12">
                 <h1 className="tw-m-0 tw-text-white tw-text-xl sm:tw-text-2xl md:tw-text-2xl tw-font-semibold">
-                 Earn upto 300% APY on your Investment 
+                 Earn upto 300% ROI on your Investment 
                 </h1>
               </div>
               {/* <div className="tw-w-full sm:tw-w-5/12 tw-flex tw-justify-end">
