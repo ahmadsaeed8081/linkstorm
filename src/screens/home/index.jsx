@@ -67,7 +67,7 @@ const Home = () => {
   const [total_withdraw_reward, set_total_withdraw_reward] = useState(0);
   const [withdraw_Amount, set_withdraw_Amount] = useState("0");
 
-
+  
   const [todayEarning, set_todayEarning] = useState(0);
 
   const [totlaInvestment, setTotalInvestment] = useState(0);
@@ -357,9 +357,9 @@ set_totalstakedAmount(staking_user?staking_user[1]:0)
 
 set_staking_allInvestments(staking_allInvestments);
 set_staking_allInvestments_reward(staking_allInvestments_reward)
-if(allInvestments!=null)
+if(staking_allInvestments!=null)
   {
-    if(allInvestments[0])
+    if(staking_allInvestments[0])
     {
       set_choosed_Unstake_inv(staking_allInvestments[0][3])
 
