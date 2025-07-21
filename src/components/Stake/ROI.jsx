@@ -96,7 +96,7 @@ const ROI = (props) => {
 
   function find_Exp_earn(amount) {
 
-    return (amount *3);
+    return ((amount- (amount*5/100)) *3);
 
   }
 
@@ -148,11 +148,20 @@ const ROI = (props) => {
 
             <div className="tw-border-t tw-border-b tw-border-white tw-py-4">
               <div className="tw-flex tw-justify-between tw-items-center">
-                <p className="tw-m-0 tw-text-white tw-text-sm sm:tw-text-base tw-font-medium">Expected ROI</p>
+                <p className="tw-m-0 tw-text-white tw-text-sm sm:tw-text-base tw-font-medium">Expected ROI:</p>
                 <p className="tw-m-0 tw-text-white tw-text-sm sm:tw-text-base">{ROI}%</p>
               </div>
+
               <div className="tw-flex tw-justify-between tw-items-center tw-mt-2">
-                <p className="tw-m-0 tw-text-white tw-text-sm sm:tw-text-base tw-font-medium">Expected Return</p>
+                <p className="tw-m-0 tw-text-white tw-text-sm sm:tw-text-base tw-font-medium">5% Fee:</p>
+                <p className="tw-m-0 tw-text-white tw-text-sm sm:tw-text-base">{Number(props.investment)*5/100} USDT</p>
+              </div>
+              <div className="tw-flex tw-justify-between tw-items-center tw-mt-2">
+                <p className="tw-m-0 tw-text-white tw-text-sm sm:tw-text-base tw-font-medium">Net Investment:</p>
+                <p className="tw-m-0 tw-text-white tw-text-sm sm:tw-text-base">{Number(props.investment)-(Number(props.investment)*5/100)} USDT</p>
+              </div>
+              <div className="tw-flex tw-justify-between tw-items-center tw-mt-2">
+                <p className="tw-m-0 tw-text-white tw-text-sm sm:tw-text-base tw-font-medium">Expected Return:</p>
                 <p className="tw-m-0 tw-text-white tw-text-sm sm:tw-text-base">{Expected_return} USDT</p>
               </div>
             </div>
