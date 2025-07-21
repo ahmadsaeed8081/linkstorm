@@ -1,5 +1,6 @@
 // TeamModal.tsx
 import React from "react";
+import { useSwitchChain, useAccount, useDisconnect } from "wagmi";
 
 const teamData = [
   { number: 1, address: "0x093...6589", earning: "$700" },
@@ -23,6 +24,9 @@ const teamData = [
 
 
 const TeamMemberShipModal= ({ isOpen, onClose,directs_members }) => {
+  const { address,isConnected, isConnecting ,isDisconnected} = useAccount()
+
+  
   if (!isOpen) return null;
 
   return (
@@ -40,7 +44,7 @@ const TeamMemberShipModal= ({ isOpen, onClose,directs_members }) => {
             <div>Earning</div>
           </div>
           <div className=" tw-bg-[#001530] tw-mt-3 tw-h-72 tw-overflow-y-auto tw-rounded-lg">
-            {directs_members.length>0 ? directs_members.members.map((member, index) => (
+            {isConnected ? directs_members.members.map((member, index) => (
               <div
                 key={index}
                 className="tw-grid tw-grid-cols-3  tw-border-b tw-text-center tw-text-sm tw-py-2 border-b tw-border-gray-700 last:tw-border-b-0 hover:tw-bg-primary"

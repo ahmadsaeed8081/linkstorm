@@ -7,6 +7,7 @@ const ROI = (props) => {
   const [ROI, set_ROI] = useState(0);
   const [Expected_return, set_Expected_return] = useState(0);
   const [withdrawFee, set_withdrawFee] = useState(0);
+  const [afterWithdraw, set_afterWithdraw] = useState(0);
 
 
 
@@ -109,6 +110,19 @@ const ROI = (props) => {
   }
 
   }
+
+  function find_afterWithdraw(amount) 
+  {
+
+    if ((Number(props.availBalance)/10**6) >= amount) {
+      set_afterWithdraw(((Number(props.availBalance)/10**6))-amount);
+    } else
+    {
+      set_afterWithdraw( 0);
+
+    }
+    
+  }
   const defaultTab = "Invest";
 
   const tabData = [
@@ -200,12 +214,12 @@ const ROI = (props) => {
             <div className="tw-border-t tw-border-b tw-border-white tw-py-4">
               <div className="tw-flex tw-justify-between tw-items-center tw-mb-3">
                 <p className="tw-m-0 tw-text-white tw-text-sm sm:tw-text-base">Balance After Withdraw</p>
-                <p className="tw-m-0 tw-text-white tw-text-sm sm:tw-text-base">                {((Number(props.availBalance)/10**6) - (Number(props.total_withdraw_reaward)/10**6))/Number(props.exorUsdPrice)} exor
+                <p className="tw-m-0 tw-text-white tw-text-sm sm:tw-text-base">                {afterWithdraw } usdt
                 </p>
               </div>
               <div className="tw-flex tw-justify-between tw-items-center">
                 <p className="tw-m-0 tw-text-white tw-text-sm sm:tw-text-base">Total Withdraw</p>
-                <p className="tw-m-0 tw-text-white tw-text-sm sm:tw-text-base">                  {Number(props.total_withdraw_reaward)/10**6} exor
+                <p className="tw-m-0 tw-text-white tw-text-sm sm:tw-text-base">                  {Number(props.total_withdraw_reaward)/10**6} usdt
                 </p>
               </div>
             </div>
@@ -221,7 +235,7 @@ const ROI = (props) => {
                   onChange={(e) => {
                   props.set_withdraw_Amount(e.target.value);
                   set_withdrawFee((Number(e.target.value) * Number(props.withdrawFee))/100);
-
+                  find_afterWithdraw(e.target.value)
                   }}                
                   
                   />
