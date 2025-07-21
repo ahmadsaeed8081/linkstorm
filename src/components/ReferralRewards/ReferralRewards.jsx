@@ -55,7 +55,7 @@ const ReferralRewards = ({refCount,levelEarning,directs_members, Level_locking})
             <div key={index} className="tw-px-3">
               <div className=" tw-bg-lightBlue tw-rounded-xl tw-p-6 tw-relative tw-text-white tw-shadow-md">
                 
-              { Level_locking?(
+              { !Level_locking[index]?(
                 <div className="tw-absolute tw-top-4 tw-right-4 tw-bg-[#1d77ff] tw-p-2 tw-rounded-full">
                 <FaLock />
               </div>
