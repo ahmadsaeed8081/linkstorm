@@ -190,7 +190,7 @@ const Staking = (props) => {
           address: staking_cont_address,
           functionName: "Stake", 
           args: [
-            (stakeAmount? Number(stakeAmount)*10**6 : 0,props.referral?props.referral:"0x0000000000000000000000000000000000000000")
+            (stakeAmount? Number(stakeAmount)*10**6 : 0),props.referral?props.referral:"0x0000000000000000000000000000000000000000"
           ],
 
         });
