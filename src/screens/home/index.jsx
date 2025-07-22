@@ -214,7 +214,7 @@ try {
     address: cont_address,
     functionName: "withdrawReward", 
     args: [
-      (Number(withdraw_Amount)) * 10**6
+      (Number(withdraw_Amount)) * (10**6)
     ],
 
   });
