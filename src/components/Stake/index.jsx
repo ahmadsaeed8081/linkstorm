@@ -47,7 +47,7 @@ const StakeComponent = (props) => {
             <div className="">
             <Staking staking_totalwithdraw={props.staking_totalwithdraw} mount={props.mount}usdt_balance={props.usdt_balance} staking_allInvestments_reward={props.staking_allInvestments_reward} staking_allInvestments={props.staking_allInvestments} totalstakedAmount={props.totalstakedAmount} total_stakingEarning={props.total_stakingEarning}   choosed_Unstake_inv={props.choosed_Unstake_inv}      />
             </div>:<div className="">
-            <ROI  totalReferralsEarning={props.totalReferralsEarning} maximum_investment={props.maximum_investment} withdrawFee={props.withdrawFee} set_withdraw_Amount={props.set_withdraw_Amount} availBalance={props.availBalance} withdraw_Amount={props.withdraw_Amount} setInvestment={props.setInvestment}  minimum_investment={props.minimum_investment} Invest={props.Invest}  total_withdraw_reaward={props.total_withdraw_reaward} WithdrawReward={props.WithdrawReward} investment={props.investment} address={props.address}/>
+            <ROI  totalReferralsEarning={props.totalReferralsEarning} maximum_investment={props.maximum_investment} withdrawFee={props.withdrawFee} set_withdraw_Amount={props.set_withdraw_Amount} availBalance={props.availBalance} withdraw_Amount={props.withdraw_Amount} setInvestment={props.setInvestment}  minimum_investment={props.minimum_investment} Invest={props.Invest}  total_withdraw_reaward={props.total_withdraw_reward} WithdrawReward={props.WithdrawReward} investment={props.investment} address={props.address}/>
             </div>
             }
             
