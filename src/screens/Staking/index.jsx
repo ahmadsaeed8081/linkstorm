@@ -623,6 +623,16 @@ useEffect(()=>{
                 
               </p>
             </div>
+            <div className="tw-flex tw-justify-between tw-items-center tw-py-2">
+              <p className="tw-m-0 tw-font-inter tw-text-sm tw-text-white">
+                Total Withdraw
+              </p>
+              <p className="tw-m-0 tw-font-poppins tw-text-sm tw-text-white">
+              {props.staking_totalwithdraw? (Number(props.staking_totalwithdraw)/10**6).toFixed(2):0} usdt
+
+                
+              </p>
+            </div>
 
             <div className="tw-flex tw-justify-between tw-items-center tw-py-2">
               <p className="tw-m-0 tw-font-inter tw-text-sm tw-text-white">

@@ -1,7 +1,7 @@
 
 export const USDT_address="0x8E4D719c0fae5eaCB617aE99E4738B8082E44ff4"
 export const cont_address="0x61E8422d26C8c2fB410C28F2677dd97E50D16273";
-export const staking_cont_address="0x4257bDcfC88d02cd98eeB222c82413A654085cf2";
+export const staking_cont_address="0x2e5172A6091d71Fd9BAeaFd09d42BF3381F41426";
 
 
 export const cont_abi=[
