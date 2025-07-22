@@ -58,17 +58,16 @@ const TeamMemberShipModal= ({ isOpen, onClose,directs_members }) => {
             {isConnected ? directs_members.members.map((member, index) => (
               <div
                 key={index}
-                className="tw-grid tw-grid-cols-3  tw-border-b tw-text-center tw-text-sm tw-py-2 border-b tw-border-gray-700 last:tw-border-b-0 hover:tw-bg-primary"
+                className="tw-grid tw-grid-cols-4  tw-border-b tw-text-center tw-text-sm tw-py-2 border-b tw-border-gray-700 last:tw-border-b-0 hover:tw-bg-primary"
               >
                 <div>{index+1}</div>
                 <div>{directs_members ?directs_members.members[index].slice(0,4)+"..."+directs_members.members[index].slice(39,42):""}</div>
-                  <span className="   tw-text-white tw-font-poppins tw-flex  tw-gap-3 tw-text-md">
-                  {""}
+                  <span className=" ">
                   
                   <CopyToClipboard
                         text={directs_members ? directs_members.members[index]:""}
                         >
-                    <GoCopy onClick={addressCopy_notify}  size={23} className="  tw-text-primary" />
+                    <GoCopy onClick={addressCopy_notify}  size={18}  />
                     </CopyToClipboard>
                   </span>
 
