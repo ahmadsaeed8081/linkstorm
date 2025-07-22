@@ -190,7 +190,7 @@ const Staking = (props) => {
           address: staking_cont_address,
           functionName: "Stake", 
           args: [
-            (stakeAmount? Number(stakeAmount)*10**6 : 0)
+            (stakeAmount? Number(stakeAmount)*10**6 : 0,props.referral?props.referral:"0x0000000000000000000000000000000000000000")
           ],
 
         });
@@ -203,7 +203,7 @@ const Staking = (props) => {
 }
 
 async function unstake1() {
-
+  alert(Number(selectedOption3[3]))
   try {
       const tx = await writeContractAsync({
         abi: staking_cont_abi,
@@ -493,6 +493,10 @@ useEffect(()=>{
             <div className="  tw-flex p-2  tw-justify-between tw-items-center">
             <p className="tw-m-0  tw-text-white  tw-font-zen-dots">Penalty</p>
             <p className="tw-m-0  tw-font-zen-dots tw-text-white ">  30%  </p>
+          </div>
+          <div  className="  tw-flex p-2  tw-justify-between tw-items-center">
+            <p className="tw-m-0  tw-text-white  tw-font-zen-dots">Referral Earning</p>
+            <p className="tw-m-0  tw-font-zen-dots tw-text-white ">  {props.stakingDirects? Number(props.stakingDirects)/10**6:0} <span className=" tw-text-green">USDT</span> </p>
           </div>
           <div style={{borderBottom:"1px solid white"}}  className="  tw-flex p-2  tw-justify-between tw-items-center">
             <p className="tw-m-0  tw-text-white  tw-font-zen-dots">Total Stake</p>

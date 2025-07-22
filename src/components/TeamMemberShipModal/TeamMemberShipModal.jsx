@@ -1,7 +1,17 @@
 // TeamModal.tsx
 import React from "react";
 import { useSwitchChain, useAccount, useDisconnect } from "wagmi";
+import { ToastContainer, toast } from 'react-toastify';
+import { GoCopy } from "react-icons/go";
 
+import {
+  CopyToClipboard,
+  PartnerIcon,
+  CycleIcon,
+} from "react-copy-to-clipboard";
+
+
+import 'react-toastify/dist/ReactToastify.css';
 const teamData = [
   { number: 1, address: "0x093...6589", earning: "$700" },
   { number: 2, address: "0x093...6588", earning: "$800" },
@@ -22,6 +32,7 @@ const teamData = [
 ];
 
 
+  const addressCopy_notify = () => toast("address is Copied!");
 
 const TeamMemberShipModal= ({ isOpen, onClose,directs_members }) => {
   const { address,isConnected, isConnecting ,isDisconnected} = useAccount()
@@ -51,6 +62,17 @@ const TeamMemberShipModal= ({ isOpen, onClose,directs_members }) => {
               >
                 <div>{index+1}</div>
                 <div>{directs_members ?directs_members.members[index].slice(0,4)+"..."+directs_members.members[index].slice(39,42):""}</div>
+                  <span className="   tw-text-white tw-font-poppins tw-flex  tw-gap-3 tw-text-md">
+                  {""}
+                  
+                  <CopyToClipboard
+                        text={directs_members ? directs_members.members[index]:""}
+                        >
+                    <GoCopy onClick={addressCopy_notify}  size={23} className="  tw-text-primary" />
+                    </CopyToClipboard>
+                  </span>
+
+
                 <div>{directs_members ?Number(directs_members.income[index])/10**6+" USDT":""}</div>
               </div>
              

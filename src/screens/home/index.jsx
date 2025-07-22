@@ -120,8 +120,8 @@ const Home = () => {
   const [staking_allInvestments, set_staking_allInvestments] = useState([]);
   const [staking_allInvestments_reward, set_staking_allInvestments_reward] = useState([]);
   
-  const [totalstakingWithdraw, set_totalstakingWithdraw] = useState(0);
-
+  const [stakingDirects, set_stakingDirects] = useState(0);
+  
   const [state, setState] = useState({
     days: 0,
     minutes: 0,
@@ -326,7 +326,7 @@ let staking_totalReward = await staking_contract.methods.get_TotalReward().call(
 
 let staking_user = await staking_contract.methods.user(address).call();      
 let staking_allInvestments = await staking_contract.methods.getAll_investments().call({from: address});
-let staking_allInvestments_reward = await staking_contract.methods.getAll_investments_ForReward().call({from: address});
+// let staking_allInvestments_reward = await staking_contract.methods.getAll_investments_ForReward().call({from: address});
 let currTime = await staking_contract.methods.get_currTime().call();    
 
 set_rank(rank_no)
@@ -343,7 +343,6 @@ setbusiness(business);
 settotalReferralsEarning(user[7])
 set_directs(user[6])
 set_holdAmount(user.total_hold_Amount)
-
 set_upline(user.referralFrom)
 set_Level_locking(Level_locking)
 set_totalEarning(Number(arr.total_earning))
@@ -359,10 +358,11 @@ set_Allinvestment(allInvestments)
 set_staking_totalwithdraw(staking_user?staking_user[2]:0)
 set_totalstakedAmount(staking_user?staking_user[1]:0)
 // set_totalstakingWithdraw(staking_user?staking_user[2]:0)
+set_stakingDirects(staking_user[5])
 
 
 set_staking_allInvestments(staking_allInvestments);
-set_staking_allInvestments_reward(staking_allInvestments_reward)
+// set_staking_allInvestments_reward(staking_allInvestments_reward)
 if(staking_allInvestments!=null)
   {
     if(staking_allInvestments[0])
@@ -486,7 +486,7 @@ async function WithdrawReward() {
   return (
     <div className=' tw-overflow-x-hidden'>
       <Hero />
-      <StakeComponent mount={mount}  hold_amount={hold_amount} rank={rank}  usdt_balance={usdt_balance} staking_totalwithdraw={staking_totalwithdraw} staking_allInvestments_reward={staking_allInvestments_reward} staking_allInvestments={staking_allInvestments} totalstakedAmount={totalstakedAmount} total_stakingEarning={total_stakingEarning}   choosed_Unstake_inv={choosed_Unstake_inv} MatchingEarning={MatchingEarning} upliner={upliner} team={team} withdrawFee={withdrawFee} todayEarning={todayEarning} availBalance={availBalance} exor_balance={exor_balance} RoiEarning={RoiEarning} directs={directs} levelEarning={levelEarning} total_withdraw_reward={total_withdraw_reward} totalReferralsEarning={totalReferralsEarning} withdraw_Amount={withdraw_Amount} setInvestment={setInvestment}  minimum_investment={minimum_investment}  Invest={Invest} set_withdraw_Amount={set_withdraw_Amount}  WithdrawReward={WithdrawReward} investment={investment} totlaInvestment={totlaInvestment} totalEarning={totalEarning} address={address}/>
+      <StakeComponent referral={referral} stakingDirects={stakingDirects} mount={mount}  hold_amount={hold_amount} rank={rank}  usdt_balance={usdt_balance} staking_totalwithdraw={staking_totalwithdraw} staking_allInvestments_reward={staking_allInvestments_reward} staking_allInvestments={staking_allInvestments} totalstakedAmount={totalstakedAmount} total_stakingEarning={total_stakingEarning}   choosed_Unstake_inv={choosed_Unstake_inv} MatchingEarning={MatchingEarning} upliner={upliner} team={team} withdrawFee={withdrawFee} todayEarning={todayEarning} availBalance={availBalance} exor_balance={exor_balance} RoiEarning={RoiEarning} directs={directs} levelEarning={levelEarning} total_withdraw_reward={total_withdraw_reward} totalReferralsEarning={totalReferralsEarning} withdraw_Amount={withdraw_Amount} setInvestment={setInvestment}  minimum_investment={minimum_investment}  Invest={Invest} set_withdraw_Amount={set_withdraw_Amount}  WithdrawReward={WithdrawReward} investment={investment} totlaInvestment={totlaInvestment} totalEarning={totalEarning} address={address}/>
       <ReferralRewards Level_locking={Level_locking} directs_members={directs_members} refCount={refCount} levelEarning={levelEarning} />
 
       <About/>

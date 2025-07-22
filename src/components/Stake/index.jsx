@@ -45,7 +45,7 @@ const StakeComponent = (props) => {
            <div className=" row">
             {tabs==="staking"?
             <div className="">
-            <Staking staking_totalwithdraw={props.staking_totalwithdraw} mount={props.mount} usdt_balance={props.usdt_balance} staking_allInvestments_reward={props.staking_allInvestments_reward} staking_allInvestments={props.staking_allInvestments} totalstakedAmount={props.totalstakedAmount} total_stakingEarning={props.total_stakingEarning}   choosed_Unstake_inv={props.choosed_Unstake_inv}      />
+            <Staking referral={props.referral} stakingDirects={props.stakingDirects} staking_totalwithdraw={props.staking_totalwithdraw} mount={props.mount} usdt_balance={props.usdt_balance} staking_allInvestments_reward={props.staking_allInvestments_reward} staking_allInvestments={props.staking_allInvestments} totalstakedAmount={props.totalstakedAmount} total_stakingEarning={props.total_stakingEarning}   choosed_Unstake_inv={props.choosed_Unstake_inv}      />
             </div>:<div className="">
             <ROI  totalReferralsEarning={props.totalReferralsEarning} maximum_investment={props.maximum_investment} withdrawFee={props.withdrawFee} set_withdraw_Amount={props.set_withdraw_Amount} availBalance={props.availBalance} withdraw_Amount={props.withdraw_Amount} setInvestment={props.setInvestment}  minimum_investment={props.minimum_investment} Invest={props.Invest}  total_withdraw_reaward={props.total_withdraw_reward} WithdrawReward={props.WithdrawReward} investment={props.investment} address={props.address}/>
             </div>
@@ -60,7 +60,7 @@ const StakeComponent = (props) => {
                 <div className=" tw-flex tw-gap-6 tw-items-center   tw-bg-lightBlue   tw-rounded-3xl  p-4">
                   <div  className=" tw-relative">
                     <img height={70} width={70} src={require('../../assets/images/logo2.png')} className=" tw-border tw-border-primary tw-rounded-full" alt="" />
-{props.rank? props.rank.map((validateTypedData,index)=>{
+                          {props.rank? props.rank.map((validateTypedData,index)=>{
                   
                   <div className="   tw-flex tw-gap-1 tw-bg-primary tw-absolute tw-bottom-0 tw-w-full tw-rounded-full tw-px-2  tw-py-1"> 
 
@@ -83,8 +83,14 @@ const StakeComponent = (props) => {
                     <GoCopy onClick={addressCopy_notify}  size={23} className="  tw-text-primary" />
                     </CopyToClipboard>
                                       </h6>
-                  <span className="   tw-text-white tw-font-poppins tw-text-md">
-                  Upline ID: {props.upliner ? props.upliner.slice(0,4)+"..."+ props.upliner.slice(39,42):""}
+                  <span className="   tw-text-white tw-font-poppins tw-flex  tw-gap-3 tw-text-md">
+                  Upline: {props.upliner ? props.upliner.slice(0,4)+"..."+ props.upliner.slice(39,42) :""}
+                  
+                  <CopyToClipboard
+                        text={props.address? props.address:""}
+                        >
+                    <GoCopy onClick={addressCopy_notify}  size={23} className="  tw-text-primary" />
+                    </CopyToClipboard>
                   </span>
                 </div>
                 </div>

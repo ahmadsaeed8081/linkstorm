@@ -1,7 +1,7 @@
 
 export const USDT_address="0x8E4D719c0fae5eaCB617aE99E4738B8082E44ff4"
 export const cont_address="0xD72935ee3Af6ae031516e2b6b7b4460c57EbaEe8";
-export const staking_cont_address="0xB6C45eFdeB2B119E244E2169a5820345bF7C3021";
+export const staking_cont_address="0x004CF67109F77A95e64639D47706022734a3330D";
 
 
 export const cont_abi=[
@@ -830,6 +830,11 @@ export const staking_cont_abi=[
 				"internalType": "uint256",
 				"name": "_investedamount",
 				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "_referral",
+				"type": "address"
 			}
 		],
 		"name": "Stake",
@@ -954,56 +959,6 @@ export const staking_cont_abi=[
 	{
 		"inputs": [],
 		"name": "getAll_investments",
-		"outputs": [
-			{
-				"components": [
-					{
-						"internalType": "uint256",
-						"name": "investedAmount",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "withdrawnTime",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "DepositTime",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "investmentNum",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "unstakeTime",
-						"type": "uint256"
-					},
-					{
-						"internalType": "bool",
-						"name": "unstake",
-						"type": "bool"
-					},
-					{
-						"internalType": "uint256",
-						"name": "reward",
-						"type": "uint256"
-					}
-				],
-				"internalType": "struct StormLink_staking.allInvestments[]",
-				"name": "Invested",
-				"type": "tuple[]"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "getAll_investments_ForReward",
 		"outputs": [
 			{
 				"components": [
@@ -1209,6 +1164,21 @@ export const staking_cont_abi=[
 				"internalType": "bool",
 				"name": "investBefore",
 				"type": "bool"
+			},
+			{
+				"internalType": "address",
+				"name": "upline",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "direct_earning",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "total_directs",
+				"type": "uint256"
 			}
 		],
 		"stateMutability": "view",
