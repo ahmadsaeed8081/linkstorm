@@ -106,6 +106,7 @@ const Home = () => {
   const [Level_locking, set_Level_locking] = useState([]);
   const [exorUsdPrice, set_exorUsdPrice] = useState();
   const [rank, set_rank] = useState(0);
+  const [hold_amount, set_holdAmount] = useState(0);
 
   //staking 
 
@@ -339,6 +340,8 @@ set_total_withdraw_reward(user.totalWithdraw_reward);
 setbusiness(business);
 settotalReferralsEarning(user[7])
 set_directs(user[6])
+set_holdAmount(user.total_hold_Amount)
+
 set_upline(user.referralFrom)
 set_Level_locking(Level_locking)
 set_totalEarning(Number(arr.total_earning))
@@ -395,10 +398,10 @@ if (investment <= 0 || investment == "") {
 alert("please write amount ");
 return
 }
-if (investment < (Number(minimum_investment)/10**6)) {
-alert("You can't invest less than "+ Number(minimum_investment)/10**6+"USDT");
-return
-}
+// if (investment < (Number(minimum_investment)/10**6)) {
+// alert("You can't invest less than "+ Number(minimum_investment)/10**6+"USDT");
+// return
+// }
 // if (investment >( Number(maximum_investment)/10**6)) {
 // alert("You can't invest more than "+ Number(minimum_investment)/10**6+"USDT");
 // return
@@ -480,7 +483,7 @@ async function WithdrawReward() {
   return (
     <div className=' tw-overflow-x-hidden'>
       <Hero />
-      <StakeComponent rank={rank}  usdt_balance={usdt_balance} staking_totalwithdraw={staking_totalwithdraw} staking_allInvestments_reward={staking_allInvestments_reward} staking_allInvestments={staking_allInvestments} totalstakedAmount={totalstakedAmount} total_stakingEarning={total_stakingEarning}   choosed_Unstake_inv={choosed_Unstake_inv} MatchingEarning={MatchingEarning} upliner={upliner} team={team} withdrawFee={withdrawFee} todayEarning={todayEarning} availBalance={availBalance} exor_balance={exor_balance} RoiEarning={RoiEarning} directs={directs} levelEarning={levelEarning} total_withdraw_reward={total_withdraw_reward} totalReferralsEarning={totalReferralsEarning} withdraw_Amount={withdraw_Amount} setInvestment={setInvestment}  minimum_investment={minimum_investment}  Invest={Invest} set_withdraw_Amount={set_withdraw_Amount}  WithdrawReward={WithdrawReward} investment={investment} totlaInvestment={totlaInvestment} totalEarning={totalEarning} address={address}/>
+      <StakeComponent hold_amount={hold_amount} rank={rank}  usdt_balance={usdt_balance} staking_totalwithdraw={staking_totalwithdraw} staking_allInvestments_reward={staking_allInvestments_reward} staking_allInvestments={staking_allInvestments} totalstakedAmount={totalstakedAmount} total_stakingEarning={total_stakingEarning}   choosed_Unstake_inv={choosed_Unstake_inv} MatchingEarning={MatchingEarning} upliner={upliner} team={team} withdrawFee={withdrawFee} todayEarning={todayEarning} availBalance={availBalance} exor_balance={exor_balance} RoiEarning={RoiEarning} directs={directs} levelEarning={levelEarning} total_withdraw_reward={total_withdraw_reward} totalReferralsEarning={totalReferralsEarning} withdraw_Amount={withdraw_Amount} setInvestment={setInvestment}  minimum_investment={minimum_investment}  Invest={Invest} set_withdraw_Amount={set_withdraw_Amount}  WithdrawReward={WithdrawReward} investment={investment} totlaInvestment={totlaInvestment} totalEarning={totalEarning} address={address}/>
       <ReferralRewards Level_locking={Level_locking} directs_members={directs_members} refCount={refCount} levelEarning={levelEarning} />
 
       <About/>

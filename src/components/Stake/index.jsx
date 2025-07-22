@@ -59,7 +59,7 @@ const StakeComponent = (props) => {
                <div className=" col-md-12">
                 <div className=" tw-flex tw-gap-6 tw-items-center   tw-bg-lightBlue   tw-rounded-3xl  p-4">
                   <div  className=" tw-relative">
-                    <img src={require('../../assets/images/logo1.png')} className=" tw-border tw-border-primary tw-rounded-full" alt="" />
+                    <img height={50} width={50} src={require('../../assets/images/logo1.jpg')} className=" tw-border tw-border-primary tw-rounded-full" alt="" />
 {props.rank? props.rank.map((validateTypedData,index)=>{
                   
                   <div className="   tw-flex tw-gap-1 tw-bg-primary tw-absolute tw-bottom-0 tw-w-full tw-rounded-full tw-px-2  tw-py-1"> 
@@ -150,16 +150,27 @@ const StakeComponent = (props) => {
               </div>
                 <div className=" col-md-6">
                 <div className=" tw-border  tw-border-textColor   tw-rounded-3xl  p-4">
-                  <h6 className="   tw-text-white  tw-font-inter ">
-                    Direct Earnings
-                  </h6>
-                  <span className="  tw-text-white  tw-font-medium  tw-font-inter tw-text-2xl">
-                  {(Number(props.totalReferralsEarning)/10**6)} 
+                <h6 className="  tw-text-white  tw-font-poppins tw-flex tw-gap-3  tw-justify-between tw-items-center">
+                   Direct Earning  : {(Number(props.totalReferralsEarning)/10**6)+(Number(props.hold_amount)/10**6)} 
 
+  
+                  </h6>
+                  <span className="  tw-text-white  tw-font-sm  tw-font-poppins tw-text-sm">
+                    Hold  : 
+                  </span>
+                  <span className="   tw-text-white tw-font-poppins tw-text-sm">
+                  : {(Number(props.hold_amount)/10**6)} |
+                  </span>
+                  <span className="  tw-text-white  tw-font-sm  tw-font-poppins tw-text-sm">
+                     | Released  : 
+                  </span>
+                  <span className="   tw-text-white tw-font-poppins tw-text-sm">
+                  : {(Number(props.totalReferralsEarning)/10**6) } 
                   </span>
                 </div>
               </div>
               <div className=" col-md-12">
+
                 <div className=" tw-border  tw-border-textColor   tw-rounded-3xl  p-4">
                   <h6 className="  tw-text-white  tw-font-poppins tw-flex tw-gap-3  tw-justify-between tw-items-center">
                     My Link 
