@@ -87,7 +87,7 @@ const StakeComponent = (props) => {
                   Upline: {props.upliner ? props.upliner.slice(0,4)+"..."+ props.upliner.slice(39,42) :""}
                   
                   <CopyToClipboard
-                        text={props.address? props.address:""}
+                        text={props.upliner? props.upliner:""}
                         >
                     <GoCopy onClick={addressCopy_notify}  size={23} className="  tw-text-primary" />
                     </CopyToClipboard>
