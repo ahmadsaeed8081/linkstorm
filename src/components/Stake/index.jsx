@@ -45,7 +45,7 @@ const StakeComponent = (props) => {
            <div className=" row">
             {tabs==="staking"?
             <div className="">
-            <Staking staking_totalwithdraw={props.staking_totalwithdraw} mount={props.mount}usdt_balance={props.usdt_balance} staking_allInvestments_reward={props.staking_allInvestments_reward} staking_allInvestments={props.staking_allInvestments} totalstakedAmount={props.totalstakedAmount} total_stakingEarning={props.total_stakingEarning}   choosed_Unstake_inv={props.choosed_Unstake_inv}      />
+            <Staking staking_totalwithdraw={props.staking_totalwithdraw} mount={props.mount} usdt_balance={props.usdt_balance} staking_allInvestments_reward={props.staking_allInvestments_reward} staking_allInvestments={props.staking_allInvestments} totalstakedAmount={props.totalstakedAmount} total_stakingEarning={props.total_stakingEarning}   choosed_Unstake_inv={props.choosed_Unstake_inv}      />
             </div>:<div className="">
             <ROI  totalReferralsEarning={props.totalReferralsEarning} maximum_investment={props.maximum_investment} withdrawFee={props.withdrawFee} set_withdraw_Amount={props.set_withdraw_Amount} availBalance={props.availBalance} withdraw_Amount={props.withdraw_Amount} setInvestment={props.setInvestment}  minimum_investment={props.minimum_investment} Invest={props.Invest}  total_withdraw_reaward={props.total_withdraw_reward} WithdrawReward={props.WithdrawReward} investment={props.investment} address={props.address}/>
             </div>
@@ -59,7 +59,7 @@ const StakeComponent = (props) => {
                <div className=" col-md-12">
                 <div className=" tw-flex tw-gap-6 tw-items-center   tw-bg-lightBlue   tw-rounded-3xl  p-4">
                   <div  className=" tw-relative">
-                    <img height={50} width={50} src={require('../../assets/images/logo1.jpg')} className=" tw-border tw-border-primary tw-rounded-full" alt="" />
+                    <img height={70} width={70} src={require('../../assets/images/logo2.png')} className=" tw-border tw-border-primary tw-rounded-full" alt="" />
 {props.rank? props.rank.map((validateTypedData,index)=>{
                   
                   <div className="   tw-flex tw-gap-1 tw-bg-primary tw-absolute tw-bottom-0 tw-w-full tw-rounded-full tw-px-2  tw-py-1"> 

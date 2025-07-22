@@ -254,9 +254,9 @@ useEffect(()=>{
     }
     if(count==1)
     {
-      set_count(0)
-      notify()
-      setStakedAmount(0)
+      set_count(0);
+      notify();
+      setStakedAmount(0);
       props.mount();
     }
   }
