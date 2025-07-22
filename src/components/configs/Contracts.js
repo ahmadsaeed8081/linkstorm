@@ -1,7 +1,7 @@
 
 export const USDT_address="0x8E4D719c0fae5eaCB617aE99E4738B8082E44ff4"
 export const cont_address="0xD72935ee3Af6ae031516e2b6b7b4460c57EbaEe8";
-export const staking_cont_address="0x2e5172A6091d71Fd9BAeaFd09d42BF3381F41426";
+export const staking_cont_address="0xB6C45eFdeB2B119E244E2169a5820345bF7C3021";
 
 
 export const cont_abi=[
@@ -884,30 +884,12 @@ export const staking_cont_abi=[
 		"inputs": [
 			{
 				"internalType": "uint256",
-				"name": "token",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
 				"name": "_amount",
 				"type": "uint256"
 			}
 		],
 		"name": "withdrawFunds",
 		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "withdrawReward",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "success",
-				"type": "bool"
-			}
-		],
 		"stateMutability": "nonpayable",
 		"type": "function"
 	},
@@ -959,25 +941,6 @@ export const staking_cont_abi=[
 	{
 		"inputs": [],
 		"name": "get_TotalReward",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "num",
-				"type": "uint256"
-			}
-		],
-		"name": "get_withdrawnTime",
 		"outputs": [
 			{
 				"internalType": "uint256",
@@ -1180,45 +1143,6 @@ export const staking_cont_abi=[
 	},
 	{
 		"inputs": [],
-		"name": "Reward_Token",
-		"outputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "Staking_token",
-		"outputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "total_withdraw_reaward",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
 		"name": "totalbusiness",
 		"outputs": [
 			{
@@ -1238,6 +1162,19 @@ export const staking_cont_abi=[
 				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "usdt_address",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
 			}
 		],
 		"stateMutability": "view",

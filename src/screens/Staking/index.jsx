@@ -480,7 +480,7 @@ useEffect(()=>{
       content: (
         <>
           <div className="tw-rounded-md">
-            <div className="tw-flex tw-py-2 tw-pb-4 tw-justify-between tw-items-center">
+            <div style={{borderBottom:"1px solid white",marginTop:"20px"}}  className="tw-flex tw-py-2 tw-pb-4 tw-justify-between tw-items-center">
               <p className="tw-m-0 tw-text-white tw-text-xl sm:tw-text-2xl tw-font-bold">
                 USDT
               </p>
@@ -490,11 +490,19 @@ useEffect(()=>{
                 alt="USDT icon"
               />
             </div>
-            <div className="tw-flex p-4  tw-justify-between tw-items-center">
-            <p className="tw-m-0  tw-text-white  tw-font-zen-dots">Total Stake</p>
-            <p className="tw-m-0  tw-font-zen-dots tw-text-white ">                     {props.totalstakedAmount? Number(props.totalstakedAmount)/10**6:0} <span className=" tw-text-green">USDT</span> </p>
+            <div className="  tw-flex p-2  tw-justify-between tw-items-center">
+            <p className="tw-m-0  tw-text-white  tw-font-zen-dots">Penalty</p>
+            <p className="tw-m-0  tw-font-zen-dots tw-text-white ">  30%  </p>
           </div>
-            <div className="tw-flex-col tw-flex tw-justify-between tw-min-h-[300px] sm:tw-min-h-[384px] tw-py-6 sm:tw-py-10">
+          <div style={{borderBottom:"1px solid white"}}  className="  tw-flex p-2  tw-justify-between tw-items-center">
+            <p className="tw-m-0  tw-text-white  tw-font-zen-dots">Total Stake</p>
+            <p className="tw-m-0  tw-font-zen-dots tw-text-white ">  {props.totalstakedAmount? Number(props.totalstakedAmount)/10**6:0} <span className=" tw-text-green">USDT</span> </p>
+          </div>
+          {/* <div className=" tw-flex p-2  tw-justify-between tw-items-center">
+            <p className="tw-m-0  tw-text-white  tw-font-zen-dots">Total Stake</p>
+            <p className="tw-m-0  tw-font-zen-dots tw-text-white ">  {props.totalstakedAmount? Number(props.totalstakedAmount)/10**6:0} <span className=" tw-text-green">USDT</span> </p>
+          </div> */}
+            <div className=" tw-flex-col tw-flex tw-justify-between tw-min-h-[300px] sm:tw-min-h-[384px] tw-py-6 sm:tw-py-10">
               <div>
                 <label className="tw-text-white tw-text-sm sm:tw-text-base">Current Investments:</label>
                 <div className="tw-mt-2">
@@ -576,6 +584,14 @@ useEffect(()=>{
                   </div>
                 </div> */}
               </div>
+              {/* <div style={{borderBottom:"1px solid white",marginTop:"20px"}} className="  tw-flex p-4  tw-justify-between tw-items-center">
+            <p className="tw-m-0  tw-text-white  tw-font-zen-dots">Total Earing</p>
+            <p className="tw-m-0  tw-font-zen-dots tw-text-white ">  {props.totalstakedAmount? Number(props.totalstakedAmount)/10**6:0} <span className=" tw-text-green">USDT</span> </p>
+          </div> */}
+          <div className="  tw-flex p-4  tw-justify-between tw-items-center">
+            <p className="tw-m-0  tw-text-white  tw-font-zen-dots">Total Reward</p>
+            <p className="tw-m-0  tw-font-zen-dots tw-text-white ">  {selectedOption3 ?Number(selectedOption3[6])/10**6:0} <span className=" tw-text-green">USDT</span> </p>
+          </div>
               <div className="tw-mt-4 sm:tw-mt-0">
                 <Button
                   onClick={unstake}
@@ -588,118 +604,118 @@ useEffect(()=>{
         </>
       ),
     },
-    {
-      title: "Reward",
-      content: (
-        <>
-          <div className="tw-rounded-md">
-            <div className="tw-flex tw-mb-4 tw-py-3 tw-border-b tw-justify-between tw-items-center">
-              <p className="tw-m-0 tw-text-white tw-text-xl sm:tw-text-2xl tw-font-bold">
-                USDT
-              </p>
-              <img 
-                src={require("../../assets/images/t_icon.png")} 
-                className="tw-w-6 sm:tw-w-8"
-                alt="USDT icon"
-              />
-            </div>
+    // {
+    //   title: "Reward",
+    //   content: (
+    //     <>
+    //       <div className="tw-rounded-md">
+    //         <div className="tw-flex tw-mb-4 tw-py-3 tw-border-b tw-justify-between tw-items-center">
+    //           <p className="tw-m-0 tw-text-white tw-text-xl sm:tw-text-2xl tw-font-bold">
+    //             USDT
+    //           </p>
+    //           <img 
+    //             src={require("../../assets/images/t_icon.png")} 
+    //             className="tw-w-6 sm:tw-w-8"
+    //             alt="USDT icon"
+    //           />
+    //         </div>
 
-            <div className="tw-flex tw-justify-between tw-items-center tw-py-2">
-              <p className="tw-m-0 tw-font-inter tw-text-sm tw-text-white">
-                Total Investment
-              </p>
-              <p className="tw-m-0 tw-font-poppins tw-text-sm tw-text-white">
-              {props.totalstakedAmount? Number(props.totalstakedAmount)/10**6:0} usdt
-              </p>
-            </div>
+    //         <div className="tw-flex tw-justify-between tw-items-center tw-py-2">
+    //           <p className="tw-m-0 tw-font-inter tw-text-sm tw-text-white">
+    //             Total Investment
+    //           </p>
+    //           <p className="tw-m-0 tw-font-poppins tw-text-sm tw-text-white">
+    //           {props.totalstakedAmount? Number(props.totalstakedAmount)/10**6:0} usdt
+    //           </p>
+    //         </div>
 
-            <div className="tw-flex tw-justify-between tw-items-center tw-py-2">
-              <p className="tw-m-0 tw-font-inter tw-text-sm tw-text-white">
-                Total Earnings
-              </p>
-              <p className="tw-m-0 tw-font-poppins tw-text-sm tw-text-white">
-              {props.total_stakingEarning? (Number(props.total_stakingEarning)/10**6).toFixed(2):0} usdt
-
-                
-              </p>
-            </div>
-            <div className="tw-flex tw-justify-between tw-items-center tw-py-2">
-              <p className="tw-m-0 tw-font-inter tw-text-sm tw-text-white">
-                Total Withdraw
-              </p>
-              <p className="tw-m-0 tw-font-poppins tw-text-sm tw-text-white">
-              {props.staking_totalwithdraw? (Number(props.staking_totalwithdraw)/10**6).toFixed(2):0} usdt
+    //         <div className="tw-flex tw-justify-between tw-items-center tw-py-2">
+    //           <p className="tw-m-0 tw-font-inter tw-text-sm tw-text-white">
+    //             Total Earnings
+    //           </p>
+    //           <p className="tw-m-0 tw-font-poppins tw-text-sm tw-text-white">
+    //           {props.total_stakingEarning? (Number(props.total_stakingEarning)/10**6).toFixed(2):0} usdt
 
                 
-              </p>
-            </div>
+    //           </p>
+    //         </div>
+    //         <div className="tw-flex tw-justify-between tw-items-center tw-py-2">
+    //           <p className="tw-m-0 tw-font-inter tw-text-sm tw-text-white">
+    //             Total Withdraw
+    //           </p>
+    //           <p className="tw-m-0 tw-font-poppins tw-text-sm tw-text-white">
+    //           {props.staking_totalwithdraw? (Number(props.staking_totalwithdraw)/10**6).toFixed(2):0} usdt
 
-            <div className="tw-flex tw-justify-between tw-items-center tw-py-2">
-              <p className="tw-m-0 tw-font-inter tw-text-sm tw-text-white">
-                Available to Claim
-              </p>
-              <p className="tw-m-0 tw-font-poppins tw-text-sm tw-text-white">
-              {props.total_stakingEarning? (((Number(props.total_stakingEarning))-(Number(props.staking_totalwithdraw)))/10**6).toFixed(2):0} usdt
+                
+    //           </p>
+    //         </div>
 
-              </p>
-            </div>
+    //         <div className="tw-flex tw-justify-between tw-items-center tw-py-2">
+    //           <p className="tw-m-0 tw-font-inter tw-text-sm tw-text-white">
+    //             Available to Claim
+    //           </p>
+    //           <p className="tw-m-0 tw-font-poppins tw-text-sm tw-text-white">
+    //           {props.total_stakingEarning? (((Number(props.total_stakingEarning))-(Number(props.staking_totalwithdraw)))/10**6).toFixed(2):0} usdt
 
-            <div className="tw-flex-col tw-flex tw-justify-between tw-min-h-[300px] sm:tw-min-h-[384px] tw-py-6 sm:tw-py-10">
-              <div>
-                <label className="tw-text-white tw-text-sm sm:tw-text-base">Investment History</label>
-                <div className="tw-mt-2">
-                  <div
-                    className="tw-relative tw-w-full tw-inline-block"
-                    ref={dropdownRef4}
-                  >
-                    <button
-                      onClick={handleToggle4}
-                      className="tw-border-[#2596EF] tw-flex tw-bg-white tw-justify-between tw-border tw-w-full tw-text-black tw-py-3 sm:tw-py-4 tw-items-center tw-px-3 sm:tw-px-4 tw-rounded-md tw-text-sm sm:tw-text-base"
-                    >
-                      <p className="tw-m-0 tw-truncate">
-                      {selectedOption4 ? Number(selectedOption4[0])/10**6:"Select an option"}
-                      </p>
-                      <p className="tw-m-0">
-                        <img
-                          src={require("../../assets/images/bxs_up-arrow.png")}
-                          className="tw-w-3 sm:tw-w-4"
-                          alt="dropdown arrow"
-                        />
-                      </p>
-                    </button>
-                    {isOpen4 && (
-                      <ul className="tw-absolute tw-bg-white tw-p-0 tw-z-30 tw-shadow-md tw-rounded-md tw-mt-1 tw-w-full tw-max-h-40 tw-overflow-auto">
-                      {props.staking_allInvestments_reward?(
-                      props.staking_allInvestments_reward.map((item,index) => (
-                        <li
-                          key={index}
-                          onClick={() => handleOption4Click(item)}
-                          className="tw-py-2 tw-px-3 sm:tw-px-4 tw-cursor-pointer tw-text-sm sm:tw-text-base hover:tw-bg-gray-100"
-                        >
-                          {Number(item[0])/10**6}
+    //           </p>
+    //         </div>
 
-                        </li>
-                      ))
-                     ):(null)}
-                      </ul>
-                    )}
+    //         <div className="tw-flex-col tw-flex tw-justify-between tw-min-h-[300px] sm:tw-min-h-[384px] tw-py-6 sm:tw-py-10">
+    //           <div>
+    //             <label className="tw-text-white tw-text-sm sm:tw-text-base">Investment History</label>
+    //             <div className="tw-mt-2">
+    //               <div
+    //                 className="tw-relative tw-w-full tw-inline-block"
+    //                 ref={dropdownRef4}
+    //               >
+    //                 <button
+    //                   onClick={handleToggle4}
+    //                   className="tw-border-[#2596EF] tw-flex tw-bg-white tw-justify-between tw-border tw-w-full tw-text-black tw-py-3 sm:tw-py-4 tw-items-center tw-px-3 sm:tw-px-4 tw-rounded-md tw-text-sm sm:tw-text-base"
+    //                 >
+    //                   <p className="tw-m-0 tw-truncate">
+    //                   {selectedOption4 ? Number(selectedOption4[0])/10**6:"Select an option"}
+    //                   </p>
+    //                   <p className="tw-m-0">
+    //                     <img
+    //                       src={require("../../assets/images/bxs_up-arrow.png")}
+    //                       className="tw-w-3 sm:tw-w-4"
+    //                       alt="dropdown arrow"
+    //                     />
+    //                   </p>
+    //                 </button>
+    //                 {isOpen4 && (
+    //                   <ul className="tw-absolute tw-bg-white tw-p-0 tw-z-30 tw-shadow-md tw-rounded-md tw-mt-1 tw-w-full tw-max-h-40 tw-overflow-auto">
+    //                   {props.staking_allInvestments_reward?(
+    //                   props.staking_allInvestments_reward.map((item,index) => (
+    //                     <li
+    //                       key={index}
+    //                       onClick={() => handleOption4Click(item)}
+    //                       className="tw-py-2 tw-px-3 sm:tw-px-4 tw-cursor-pointer tw-text-sm sm:tw-text-base hover:tw-bg-gray-100"
+    //                     >
+    //                       {Number(item[0])/10**6}
 
-                  </div>
-                  <div className="  tw-pt-1 tw-text-white tw-flex tw-gap-1 tw-items-center tw-justify-end">Earning: <span className=" tw-text-primary">{selectedOption4 ? (Number(selectedOption4[6])/10**6).toFixed(2):0}</span></div>
-                </div>
-              </div>
-              <div className="tw-mt-4 sm:tw-mt-0">
-                <Button
-                onClick={claim}
-                  label={"Claim"}
-                  className={"tw-w-full tw-text-white tw-rounded-md tw-py-2 sm:tw-py-3"}
-                />
-              </div>
-            </div>
-          </div>
-        </>
-      ),
-    },
+    //                     </li>
+    //                   ))
+    //                  ):(null)}
+    //                   </ul>
+    //                 )}
+
+    //               </div>
+    //               <div className="  tw-pt-1 tw-text-white tw-flex tw-gap-1 tw-items-center tw-justify-end">Earning: <span className=" tw-text-primary">{selectedOption4 ? (Number(selectedOption4[6])/10**6).toFixed(2):0}</span></div>
+    //             </div>
+    //           </div>
+    //           <div className="tw-mt-4 sm:tw-mt-0">
+    //             <Button
+    //             onClick={claim}
+    //               label={"Claim"}
+    //               className={"tw-w-full tw-text-white tw-rounded-md tw-py-2 sm:tw-py-3"}
+    //             />
+    //           </div>
+    //         </div>
+    //       </div>
+    //     </>
+    //   ),
+    // },
   ];
 
   return (
