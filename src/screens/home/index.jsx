@@ -286,7 +286,6 @@ if (id != null) {
 
 let web3= new Web3(new Web3.providers.HttpProvider("https://polygon-bor-rpc.publicnode.com"));
 const pol_balance = await web3.eth.getBalance(address);
-
 //usdt token
 const contract_usdt = new web3.eth.Contract(token_abi, USDT_address);
 let usdt_balance = await contract_usdt.methods.balanceOf(address).call();

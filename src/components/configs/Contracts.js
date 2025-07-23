@@ -1,7 +1,7 @@
 
-export const USDT_address="0x8E4D719c0fae5eaCB617aE99E4738B8082E44ff4"
-export const cont_address="0xD72935ee3Af6ae031516e2b6b7b4460c57EbaEe8";
-export const staking_cont_address="0x004CF67109F77A95e64639D47706022734a3330D";
+export const USDT_address="0xc2132D05D31c914a87C6611C10748AEb04B58e8F"
+export const cont_address="0x28d4e84F6860A6CF429DC9178b54e8d30343e7E1";
+export const staking_cont_address="0xd26ad2a923F55d012323d963f81b58FaCA770114";
 
 
 export const cont_abi=[
