@@ -41,7 +41,7 @@ const phases = [
 
 const RoadMap = () => {
   return (
-    <div className=" tw-pb-16 tw-mx-auto container tw-text-white tw-relative">
+    <div id="roadmap" className=" tw-pb-16 tw-mx-auto container tw-text-white tw-relative">
       <h2 className="tw-text-center tw-font-grotesk tw-pb-10 tw-text-2xl sm:tw-text-3xl tw-font-bold tw-mb-12">
         Roadmap
       </h2>

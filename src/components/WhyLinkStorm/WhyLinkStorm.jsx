@@ -9,14 +9,14 @@ const WhyLinkStorm = () => {
           </div>
           <div className=' sm:tw-w-6/12 tw-w-full tw-pb-4'>
            <h2 className=' tw-text-white tw-font-grotesk'>Why LinkStorm</h2>
-           <p className=' tw-font-inter tw-py-3 tw-text-white'>We are using a decentralized blockchain for staking</p>
+           <p className=' tw-font-inter tw-py-3 tw-text-white'>We are using a decentralized blockchain for ROI & Staking </p>
            <div className=' tw-grid sm:tw-grid-cols-2 tw-grid-cols-1 tw-gap-3'>
             <div className=' tw-flex tw-gap-3'>
                 <div>
                  <img src={require('../../assets/images/check.png')}  className=' sm:tw-w-12 w-5' alt='' />
                 </div>
                 <div>
-                  <h5 className=' tw-text-white tw-leading-8 sm:text-lg tw-text-base tw-font-inter'>Easy to buy and stake USDTCOIN</h5>
+                  <h5 className=' tw-text-white tw-leading-8 sm:text-lg tw-text-base tw-font-inter'>Easy to buy and stake USDT Token</h5>
                 </div>
             </div>
               <div className=' tw-flex tw-gap-3'>
@@ -25,7 +25,7 @@ const WhyLinkStorm = () => {
 
                 </div>
                <div>
-                 <h5  className=' tw-text-white tw-leading-8 sm:text-lg tw-text-base tw-font-inter'>Withdrawal in BEP20 USDT</h5>
+                 <h5  className=' tw-text-white tw-leading-8 sm:text-lg tw-text-base tw-font-inter'>Withdrawal in USDT</h5>
                </div>
             </div>
             <div className=' tw-flex tw-gap-3'>
@@ -43,7 +43,7 @@ const WhyLinkStorm = () => {
 
                 </div>
                 <div>
-                  <h5  className=' tw-text-white tw-leading-8 sm:text-lg tw-text-base tw-font-inter'>400% ROI payout</h5>
+                  <h5  className=' tw-text-white tw-leading-8 sm:text-lg tw-text-base tw-font-inter'>300% ROI payout</h5>
                 </div>
             </div>
            </div>

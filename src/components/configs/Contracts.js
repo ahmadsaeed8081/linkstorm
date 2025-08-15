@@ -1,29 +1,10 @@
 
 export const USDT_address="0xc2132D05D31c914a87C6611C10748AEb04B58e8F"
-export const cont_address="0x28d4e84F6860A6CF429DC9178b54e8d30343e7E1";
-export const staking_cont_address="0xd26ad2a923F55d012323d963f81b58FaCA770114";
+export const cont_address="0x62ae3895aDD0CC8F4D4fB5238c8108BD8AaFAD28";//0xad6B205920d60FBd8cF4Fb7D095c643174e97E97
+export const staking_cont_address="0x69A43d2b030bB23CD34386CA7549E6f1AF76D624";
 
 
 export const cont_abi=[
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_period",
-				"type": "uint256"
-			}
-		],
-		"name": "change_investmentPeriod",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
 	{
 		"inputs": [
 			{
@@ -40,6 +21,13 @@ export const cont_abi=[
 				"type": "bool"
 			}
 		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "initialize",
+		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
 	},
@@ -70,6 +58,45 @@ export const cont_abi=[
 	{
 		"inputs": [
 			{
+				"internalType": "uint256",
+				"name": "_amount",
+				"type": "uint256"
+			}
+		],
+		"name": "set_direct_rew_percentage",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_amount",
+				"type": "uint256"
+			}
+		],
+		"name": "set_fee_percentage",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_amount",
+				"type": "uint256"
+			}
+		],
+		"name": "set_minimum_investment",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
 				"internalType": "address",
 				"name": "_owner",
 				"type": "address"
@@ -81,26 +108,15 @@ export const cont_abi=[
 		"type": "function"
 	},
 	{
-		"inputs": [],
-		"stateMutability": "nonpayable",
-		"type": "constructor"
-	},
-	{
 		"inputs": [
 			{
-				"internalType": "uint256",
-				"name": "_amount",
-				"type": "uint256"
+				"internalType": "address",
+				"name": "newCode",
+				"type": "address"
 			}
 		],
-		"name": "update_withdrawReward",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "success",
-				"type": "bool"
-			}
-		],
+		"name": "updateCode",
+		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
 	},
@@ -177,73 +193,12 @@ export const cont_abi=[
 	},
 	{
 		"inputs": [],
-		"name": "get_curr_day",
+		"name": "fee_wallet_address",
 		"outputs": [
 			{
-				"internalType": "uint256",
-				"name": "curr_month",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "get_currTime",
-		"outputs": [
-			{
-				"internalType": "uint256",
+				"internalType": "address",
 				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "_add",
 				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "day_no",
-				"type": "uint256"
-			}
-		],
-		"name": "get_givenDay_matchingRew",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "rew",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "_add",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "day_no",
-				"type": "uint256"
-			}
-		],
-		"name": "get_givenDay_roi",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "roi_earning",
-				"type": "uint256"
 			}
 		],
 		"stateMutability": "view",
@@ -293,18 +248,47 @@ export const cont_abi=[
 				"internalType": "address",
 				"name": "_add",
 				"type": "address"
+			}
+		],
+		"name": "get_level_earning",
+		"outputs": [
+			{
+				"internalType": "uint256[15]",
+				"name": "LevelRewards",
+				"type": "uint256[15]"
 			},
 			{
 				"internalType": "uint256",
-				"name": "day_no",
+				"name": "",
 				"type": "uint256"
 			}
 		],
-		"name": "get_max_roi",
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_add",
+				"type": "address"
+			}
+		],
+		"name": "get_matchingRew",
 		"outputs": [
 			{
 				"internalType": "uint256",
-				"name": "",
+				"name": "rew",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "sl",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "ol",
 				"type": "uint256"
 			}
 		],
@@ -357,31 +341,11 @@ export const cont_abi=[
 				"type": "address"
 			}
 		],
-		"name": "get_totalEarning",
+		"name": "get_roi_earning",
 		"outputs": [
 			{
 				"internalType": "uint256",
-				"name": "total_earning",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256[15]",
-				"name": "levelEarning",
-				"type": "uint256[15]"
-			},
-			{
-				"internalType": "uint256",
 				"name": "roi_earning",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "direct_earning",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "matching_ear",
 				"type": "uint256"
 			}
 		],
@@ -389,7 +353,32 @@ export const cont_abi=[
 		"type": "function"
 	},
 	{
-		"inputs": [],
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_add",
+				"type": "address"
+			}
+		],
+		"name": "get_totalEarning",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "add",
+				"type": "address"
+			}
+		],
 		"name": "getAllinvestments",
 		"outputs": [
 			{
@@ -416,12 +405,73 @@ export const cont_abi=[
 					},
 					{
 						"internalType": "uint256",
-						"name": "roi",
+						"name": "perday_RewPercentage",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "total_deductDays",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "time_period",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct StormLink_ROI.allInvestments[]",
+				"name": "hello",
+				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "add",
+				"type": "address"
+			}
+		],
+		"name": "getLevelinvestments",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "investedAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "expire_Time",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "DepositTime",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "investmentNum",
 						"type": "uint256"
 					},
 					{
 						"internalType": "uint256",
 						"name": "perday_RewPercentage",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "total_deductDays",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "time_period",
 						"type": "uint256"
 					}
 				],
@@ -458,26 +508,19 @@ export const cont_abi=[
 		"type": "function"
 	},
 	{
-		"inputs": [],
-		"name": "investmentPeriod",
-		"outputs": [
+		"inputs": [
 			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
+				"internalType": "address",
+				"name": "add",
+				"type": "address"
 			}
 		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "launch_date",
+		"name": "Level_business",
 		"outputs": [
 			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
+				"internalType": "uint256[]",
+				"name": "_arr",
+				"type": "uint256[]"
 			}
 		],
 		"stateMutability": "view",
@@ -497,30 +540,6 @@ export const cont_abi=[
 				"internalType": "uint256[]",
 				"name": "_arr",
 				"type": "uint256[]"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "inv",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "day_no",
-				"type": "uint256"
-			}
-		],
-		"name": "Level_earning",
-		"outputs": [
-			{
-				"internalType": "uint256[15]",
-				"name": "arr1",
-				"type": "uint256[15]"
 			}
 		],
 		"stateMutability": "view",
@@ -588,6 +607,19 @@ export const cont_abi=[
 			}
 		],
 		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "proxiableUUID",
+		"outputs": [
+			{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}
+		],
+		"stateMutability": "pure",
 		"type": "function"
 	},
 	{
@@ -672,7 +704,7 @@ export const cont_abi=[
 		"outputs": [
 			{
 				"internalType": "address",
-				"name": "referralFrom",
+				"name": "upliner",
 				"type": "address"
 			},
 			{
@@ -719,103 +751,16 @@ export const cont_abi=[
 				"internalType": "uint256",
 				"name": "total_hold_Amount",
 				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "add",
-				"type": "address"
 			},
 			{
 				"internalType": "uint256",
-				"name": "day_no",
+				"name": "total_team",
 				"type": "uint256"
-			}
-		],
-		"name": "user_dayData",
-		"outputs": [
-			{
-				"components": [
-					{
-						"internalType": "uint256",
-						"name": "max_roi",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "directIncome",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "matching_business",
-						"type": "uint256"
-					}
-				],
-				"internalType": "struct StormLink_ROI.daily_data",
-				"name": "",
-				"type": "tuple"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "add",
-				"type": "address"
 			},
 			{
 				"internalType": "uint256",
-				"name": "i",
+				"name": "matching_business",
 				"type": "uint256"
-			}
-		],
-		"name": "user_investment",
-		"outputs": [
-			{
-				"components": [
-					{
-						"internalType": "uint256",
-						"name": "investedAmount",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "expire_Time",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "DepositTime",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "investmentNum",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "roi",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "perday_RewPercentage",
-						"type": "uint256"
-					}
-				],
-				"internalType": "struct StormLink_ROI.allInvestments",
-				"name": "",
-				"type": "tuple"
 			}
 		],
 		"stateMutability": "view",
@@ -824,6 +769,25 @@ export const cont_abi=[
 ];
 
 export const staking_cont_abi=[
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "All_investors",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
 	{
 		"inputs": [
 			{
@@ -849,108 +813,26 @@ export const staking_cont_abi=[
 		"type": "function"
 	},
 	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "_owner",
-				"type": "address"
-			}
-		],
-		"name": "transferOwnership",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
 		"inputs": [],
-		"stateMutability": "nonpayable",
-		"type": "constructor"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "num",
-				"type": "uint256"
-			}
-		],
-		"name": "unStake",
+		"name": "direct_percentage",
 		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "success",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_amount",
-				"type": "uint256"
-			}
-		],
-		"name": "withdrawFunds",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
 			{
 				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
 			}
 		],
-		"name": "All_investors",
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "fee_wallet_address",
 		"outputs": [
 			{
 				"internalType": "address",
 				"name": "",
 				"type": "address"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "apr",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "get_currTime",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "get_TotalReward",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
 			}
 		],
 		"stateMutability": "view",
@@ -1039,6 +921,39 @@ export const staking_cont_abi=[
 		"type": "function"
 	},
 	{
+		"inputs": [],
+		"name": "get_TotalReward",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "get_currTime",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "initalized",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
 		"inputs": [
 			{
 				"internalType": "address",
@@ -1059,7 +974,7 @@ export const staking_cont_abi=[
 	},
 	{
 		"inputs": [],
-		"name": "Lockup_period",
+		"name": "min_investment",
 		"outputs": [
 			{
 				"internalType": "uint256",
@@ -1085,7 +1000,7 @@ export const staking_cont_abi=[
 	},
 	{
 		"inputs": [],
-		"name": "per_day_divider",
+		"name": "penalty_fee",
 		"outputs": [
 			{
 				"internalType": "uint256",
@@ -1094,6 +1009,58 @@ export const staking_cont_abi=[
 			}
 		],
 		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "proxiableUUID",
+		"outputs": [
+			{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}
+		],
+		"stateMutability": "pure",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_amount",
+				"type": "uint256"
+			}
+		],
+		"name": "set_direct_percentage",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_amount",
+				"type": "uint256"
+			}
+		],
+		"name": "set_penalty_fee",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_amount",
+				"type": "uint256"
+			}
+		],
+		"name": "set_withdraw_fee",
+		"outputs": [],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
@@ -1120,6 +1087,51 @@ export const staking_cont_abi=[
 			}
 		],
 		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_owner",
+				"type": "address"
+			}
+		],
+		"name": "transferOwnership",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "num",
+				"type": "uint256"
+			}
+		],
+		"name": "unStake",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "success",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "newCode",
+				"type": "address"
+			}
+		],
+		"name": "updateCode",
+		"outputs": [],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
@@ -1187,51 +1199,23 @@ export const staking_cont_abi=[
 	{
 		"inputs": [
 			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			},
-			{
 				"internalType": "uint256",
-				"name": "",
+				"name": "_amount",
 				"type": "uint256"
 			}
 		],
-		"name": "user_investments",
+		"name": "withdrawFunds",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "withdraw_fee",
 		"outputs": [
 			{
 				"internalType": "uint256",
-				"name": "investedAmount",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "withdrawnTime",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "DepositTime",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "investmentNum",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "unstakeTime",
-				"type": "uint256"
-			},
-			{
-				"internalType": "bool",
-				"name": "unstake",
-				"type": "bool"
-			},
-			{
-				"internalType": "uint256",
-				"name": "reward",
+				"name": "",
 				"type": "uint256"
 			}
 		],

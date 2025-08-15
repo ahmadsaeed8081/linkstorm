@@ -7,7 +7,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import TeamMemberShipModal from "../TeamMemberShipModal/TeamMemberShipModal";
 
-const ReferralRewards = ({refCount,levelEarning,directs_members, Level_locking}) => {
+const ReferralRewards = ({Level_business,refCount,levelEarning,directs_members, Level_locking}) => {
   const levels = [
     { level: "Level 01", percentage: "10%", earning: "$70", teamMember: 15, Icon:<img  className=" tw-cursor-pointer" onClick={()=>setIsModalOpen(true)} src={require('../../assets/images/Eye.png')} alt="" />},
     { level: "Level 02", percentage: "6%", earning: "$70", teamMember: 15 },
@@ -43,7 +43,7 @@ const ReferralRewards = ({refCount,levelEarning,directs_members, Level_locking})
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <div className="tw-bg-[#031430] container tw-py-12">
+    <div id="referRew" className="tw-bg-[#031430] container tw-py-12">
       <h2 className="tw-text-white tw-pt-4 tw-text-center tw-font-grotesk tw-text-3xl tw-font-semibold tw-mb-8">
         Your Referral Reward
       </h2>
@@ -63,11 +63,16 @@ const ReferralRewards = ({refCount,levelEarning,directs_members, Level_locking})
 
                 <h3 className="tw-text-xl tw-font-medium tw-mb-4">{item.level}</h3>
                 <div className="tw-text-sm tw-space-y-2">
+
                   <div className="tw-flex tw-justify-between">
                     <span>Percentage</span>
                     <span>{item.percentage}</span>
                   </div>
-                  <div className="tw-flex tw-py-2 tw-justify-between">
+                  <div className="tw-flex tw-justify-between">
+                    <span>Busness</span>
+                    <span className=" tw-flex tw-gap-1"> <img  src={require('../../assets/images/t_icon.png')}  className=" tw-w-6" alt="" /> {Level_business[index]?Number(Level_business[index])/10**6:0}</span>
+                  </div>
+                  <div className="tw-flex tw-py-1 tw-justify-between">
                     <span className="tw-flex tw-items-center">
                       Earning
                     </span>

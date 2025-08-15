@@ -80,7 +80,7 @@ const Header = () => {
               <Link
                 to={"/"}
                 
-                onClick={() => handleNavigate("/", "aboutSection")}
+                onClick={() => handleNavigate("/", "stake")}
                 className="tw-text-white  tw-font-inter  tw-text-md"
               >
                 Stake
@@ -90,19 +90,32 @@ const Header = () => {
             <li>
               <Link
                 to={"/"}
-                onClick={() => handleNavigate("/", "roadSection")}
+                onClick={() => handleNavigate("/", "referRew")}
                className="tw-text-white tw-text-md tw-font-inter "
               >
                 Referral
               </Link>
             </li>
 
+
+
+
             <li>
-              <Link to={"#"} className="tw-text-white tw-text-md tw-font-inter ">
+              <Link
+                
+                onClick={() => handleNavigate("/", "aboutSection")}
+                to={"/"} className="tw-text-white tw-text-md tw-font-inter ">
                 How to
               </Link>
             </li>
-
+            <li>
+              <Link
+                
+                onClick={() => handleNavigate("/", "roadmap")}
+                to={"/"} className="tw-text-white tw-text-md tw-font-inter ">
+                Roadmap
+              </Link>
+            </li>
            
           </ul>
          

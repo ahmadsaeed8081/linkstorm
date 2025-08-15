@@ -8,7 +8,7 @@ const FAQ = () => {
       key:1,
       id:"01",
       title: "What is Link Storm?",
-      data: "Link Storm is a decentralized DeFi + MLM platform built on the Polygon blockchain. It offers daily ROI, referral income, leadership rewards, and optional 15 months staking with 200% return — all powered by secure smart contracts",
+      data: "Link Storm is a decentralized DeFi + MLM platform built on the Polygon blockchain. It offers daily ROI, referral income, leadership rewards, and optional 25 months staking with 200% return — all powered by secure smart contracts",
       isOpen: false,
     },
      {
@@ -40,7 +40,7 @@ const FAQ = () => {
       key:4,
       id:"04",
       title: "Can I earn without referrals?",
-      data: "Absolutely. You can simply stake for 15 months and receive 200% returns without referring anyone. Referrals are optional and offer extra earning potential.",
+      data: "Absolutely. You can simply stake for 25 months and receive 200% returns without referring anyone. Referrals are optional and offer extra earning potential.",
       isOpen: false,
     },
     {

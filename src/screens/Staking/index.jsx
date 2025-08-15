@@ -322,11 +322,11 @@ useEffect(()=>{
       return;
     }
 
-    // if(Number(stakeAmount) < Number(props.min_stake)/10**18 )
-    // {
-    //   alert("Minimum Stake amount is "+ Number(min_stake)/10**18);
-    //   return;
-    // }
+    if(Number(stakeAmount) < Number(props.staking_min_inv)/10**6 )
+    {
+      alert("Minimum Stake amount is "+ Number(props.staking_min_inv)/10**6);
+      return;
+    }
 
     if(Number(props.usdt_balance)/10**6 < Number(stakeAmount))
     {
@@ -415,7 +415,7 @@ useEffect(()=>{
                 <p className="tw-m-0 tw-text-white tw-font-normal tw-text-sm sm:tw-text-base">
                   Lock-up Period
                 </p>
-                <p className="tw-m-0 tw-text-white tw-text-sm sm:tw-text-base">15 Months</p>
+                <p className="tw-m-0 tw-text-white tw-text-sm sm:tw-text-base">25 Months</p>
               </div>
               <div className="tw-flex tw-pt-3 tw-justify-between tw-items-center">
                 <p className="tw-m-0 tw-text-white tw-font-normal tw-text-sm sm:tw-text-base">Fixed APY:</p>
@@ -428,7 +428,7 @@ useEffect(()=>{
                 <div>
                   <div className="tw-flex tw-flex-col xs:tw-flex-row tw-justify-between tw-items-start xs:tw-items-center tw-gap-2 xs:tw-gap-0">
                     <p className="tw-font-medium tw-text-white tw-text-sm sm:tw-text-base">
-                      Amount: Min $10
+                      Amount: Min ${Number(props.staking_min_inv)/10**6}
                     </p>
                     <p className="tw-text-white tw-text-xs sm:tw-text-sm">
                       Balance: {props.usdt_balance?Number(props.usdt_balance)/10**6:0} USDT

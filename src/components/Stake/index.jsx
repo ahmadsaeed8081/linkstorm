@@ -16,6 +16,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { polygon, polygonAmoy } from "wagmi/chains";
 import Loader from "../../../src/components/Loader.js";
 
+
 const StakeComponent = (props) => {
   const [tabs,setTabs] = useState('roi')
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -28,7 +29,7 @@ const StakeComponent = (props) => {
   return (
     
     
-      <div className="container tw-relative tw-pt-11">
+      <div id="stake" className="container tw-relative tw-pt-11">
               <LeaderShipModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
 
           <div className="  tw-bg-lightBlue tw-rounded-full  tw-justify-center tw-items-center tw-mx-auto tw-mb-12 tw-flex tw-w-64 p-2">
@@ -45,7 +46,7 @@ const StakeComponent = (props) => {
            <div className=" row">
             {tabs==="staking"?
             <div className="">
-            <Staking referral={props.referral} stakingDirects={props.stakingDirects} staking_totalwithdraw={props.staking_totalwithdraw} mount={props.mount} usdt_balance={props.usdt_balance} staking_allInvestments_reward={props.staking_allInvestments_reward} staking_allInvestments={props.staking_allInvestments} totalstakedAmount={props.totalstakedAmount} total_stakingEarning={props.total_stakingEarning}   choosed_Unstake_inv={props.choosed_Unstake_inv}      />
+            <Staking staking_min_inv={props.staking_min_inv} referral={props.referral} stakingDirects={props.stakingDirects} staking_totalwithdraw={props.staking_totalwithdraw} mount={props.mount} usdt_balance={props.usdt_balance} staking_allInvestments_reward={props.staking_allInvestments_reward} staking_allInvestments={props.staking_allInvestments} totalstakedAmount={props.totalstakedAmount} total_stakingEarning={props.total_stakingEarning}   choosed_Unstake_inv={props.choosed_Unstake_inv}      />
             </div>:<div className="">
             <ROI  totalReferralsEarning={props.totalReferralsEarning} maximum_investment={props.maximum_investment} withdrawFee={props.withdrawFee} set_withdraw_Amount={props.set_withdraw_Amount} availBalance={props.availBalance} withdraw_Amount={props.withdraw_Amount} setInvestment={props.setInvestment}  minimum_investment={props.minimum_investment} Invest={props.Invest}  total_withdraw_reaward={props.total_withdraw_reward} WithdrawReward={props.WithdrawReward} investment={props.investment} address={props.address}/>
             </div>
@@ -98,7 +99,29 @@ const StakeComponent = (props) => {
               <div className=" col-md-6">
                 <div className=" tw-border  tw-border-textColor   tw-rounded-3xl  p-4">
                   <h6 className="   tw-text-white  tw-font-inter ">
-                    Current Balance
+                    Total Earned
+                  </h6>
+                  <span className="  tw-text-white  tw-font-medium  tw-font-inter tw-text-2xl">
+                  {(Number(props.totalEarning)/10**6)}
+
+                  </span>
+                </div>
+              </div>
+              <div className=" col-md-6">
+                <div className=" tw-border  tw-border-textColor   tw-rounded-3xl  p-4">
+                  <h6 className="   tw-text-white  tw-font-inter ">
+                    Remaining Earning
+                  </h6>
+                  <span className="  tw-text-white  tw-font-medium  tw-font-inter tw-text-2xl">
+                  {((Number(props.totlaInvestment)*3)/10**6) - (Number(props.totalEarning)/10**6) } 
+
+                  </span>
+                </div>
+              </div>
+              <div className=" col-md-6">
+                <div className=" tw-border  tw-border-textColor   tw-rounded-3xl  p-4">
+                  <h6 className="   tw-text-white  tw-font-inter ">
+                    Available Balance
                   </h6>
                   <span className="  tw-text-white  tw-font-medium  tw-font-inter tw-text-2xl">
                   {(Number(props.availBalance)/10**6)}
@@ -136,24 +159,22 @@ const StakeComponent = (props) => {
                   </h6>
                   <span className="  tw-text-white  tw-font-medium  tw-font-inter tw-text-2xl">
                   {Number(props.directs)}
-
+                  
                   </span>
                 </div>
               </div>
-               <div className=" col-md-6">
-                <div  className=" tw-border  tw-cursor-pointer tw-border-textColor   tw-rounded-3xl  p-4">
-                  <div className=" tw-flex tw-justify-between tw-items-center">
-                    <h6 className="   tw-text-white  tw-font-inter ">
-                    Leadership Bonus
+              <div className=" col-md-6">
+                <div className=" tw-border  tw-border-textColor   tw-rounded-3xl  p-4">
+                  <h6 className="   tw-text-white  tw-font-inter ">
+                     ROI Earning
                   </h6>
-                  <img onClick={()=>setIsModalOpen(true)} src={require('../../assets/images/bouns.png')} alt="" />
-                  </div>
                   <span className="  tw-text-white  tw-font-medium  tw-font-inter tw-text-2xl">
-                  {(Number(props.MatchingEarning)/10**6)} 
-
+                  {Number(props.RoiEarning)/10**6}
+                  
                   </span>
                 </div>
               </div>
+
                 <div className=" col-md-6">
                 <div className=" tw-border  tw-border-textColor   tw-rounded-3xl  p-4">
                 <h6 className="  tw-text-white  tw-font-poppins tw-flex tw-gap-3  tw-justify-between tw-items-center">
@@ -172,6 +193,78 @@ const StakeComponent = (props) => {
                   </span>
                   <span className="   tw-text-white tw-font-poppins tw-text-sm">
                   : {(Number(props.totalReferralsEarning)/10**6) } 
+                  </span>
+                </div>
+              </div>
+              <div className=" col-md-6">
+                <div  className=" tw-border  tw-cursor-pointer tw-border-textColor   tw-rounded-3xl  p-4">
+                  <div className=" tw-flex tw-justify-between tw-items-center">
+                    <h6 className="   tw-text-white  tw-font-inter ">
+                    Leadership Bonus
+                  </h6>
+                  <img onClick={()=>setIsModalOpen(true)} src={require('../../assets/images/bouns.png')} alt="" />
+                  </div>
+                  <span className="  tw-text-white  tw-font-medium  tw-font-inter tw-text-2xl">
+                  {(Number(props.MatchingEarning)/10**6)} 
+
+                  </span>
+                </div>
+              </div>
+
+              <div className=" col-md-6">
+                <div  className=" tw-border  tw-cursor-pointer tw-border-textColor   tw-rounded-3xl  p-4">
+                  <div className=" tw-flex tw-justify-between tw-items-center">
+                    <h6 className="   tw-text-white  tw-font-inter ">
+                    Super Leg Balance
+                  </h6>
+                  <img onClick={()=>setIsModalOpen(true)} src={require('../../assets/images/bouns.png')} alt="" />
+                  </div>
+                  <span className="  tw-text-white  tw-font-medium  tw-font-inter tw-text-2xl">
+                  {(Number(props.sl)/10**6)} 
+
+                  </span>
+                </div>
+              </div>
+              
+              <div className=" col-md-6">
+                <div  className=" tw-border  tw-cursor-pointer tw-border-textColor   tw-rounded-3xl  p-4">
+                  <div className=" tw-flex tw-justify-between tw-items-center">
+                    <h6 className="   tw-text-white  tw-font-inter ">
+                    Other Legs Balance
+                  </h6>
+                  <img onClick={()=>setIsModalOpen(true)} src={require('../../assets/images/bouns.png')} alt="" />
+                  </div>
+                  <span className="  tw-text-white  tw-font-medium  tw-font-inter tw-text-2xl">
+                  {(Number(props.ol)/10**6)} 
+
+                  </span>
+                </div>
+              </div>
+              <div className=" col-md-6">
+                <div  className=" tw-border  tw-cursor-pointer tw-border-textColor   tw-rounded-3xl  p-4">
+                  <div className=" tw-flex tw-justify-between tw-items-center">
+                    <h6 className="   tw-text-white  tw-font-inter ">
+                    Total Team
+                  </h6>
+                  <img onClick={()=>setIsModalOpen(true)} src={require('../../assets/images/bouns.png')} alt="" />
+                  </div>
+                  <span className="  tw-text-white  tw-font-medium  tw-font-inter tw-text-2xl">
+                  {(Number(props.team))} 
+
+                  </span>
+                </div>
+              </div>
+              <div className=" col-md-6">
+                <div  className=" tw-border  tw-cursor-pointer tw-border-textColor   tw-rounded-3xl  p-4">
+                  <div className=" tw-flex tw-justify-between tw-items-center">
+                    <h6 className="   tw-text-white  tw-font-inter ">
+                    Total Team Business
+                  </h6>
+                  <img onClick={()=>setIsModalOpen(true)} src={require('../../assets/images/bouns.png')} alt="" />
+                  </div>
+                  <span className="  tw-text-white  tw-font-medium  tw-font-inter tw-text-2xl">
+                  {(Number(props.total_business)/10**6)} 
+
                   </span>
                 </div>
               </div>

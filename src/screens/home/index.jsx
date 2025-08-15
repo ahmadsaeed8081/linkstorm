@@ -29,7 +29,9 @@ import { useSwitchChain, useAccount, useDisconnect } from "wagmi";
 
 
 import { useSimulateContract, useWriteContract, useWaitForTransactionReceipt } from 'wagmi'
-
+import { Alert } from "bootstrap";
+import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc';
 const Home = () => {
 
 
@@ -81,7 +83,6 @@ const Home = () => {
   const [exor_balance, set_exorBalance] = useState(0);
 
   const [usdt_balance, set_usdtBalance] = useState(0);
-  const [team, set_team] = useState(0);
   const [maximum_investment, set_maximum_investment] = useState(0);
 
   
@@ -95,7 +96,6 @@ const Home = () => {
   const [withdrawList, setwithdrawList] = useState([]);
   const [availBalance, set_availBalance] = useState(0);
 
-  const [totalbusiness, setbusiness] = useState("0");
   const [totalReferralsEarning, settotalReferralsEarning] = useState(0);
 
   const [referral, setReferral] = useState("0x0000000000000000000000000000000000000000");
@@ -104,6 +104,9 @@ const Home = () => {
   
   const [directs_members, set_directs_members] = useState([]);
   const [Level_locking, set_Level_locking] = useState([]);
+  const [Level_business, set_Level_business] = useState([]);
+
+  
   const [exorUsdPrice, set_exorUsdPrice] = useState();
   const [rank, set_rank] = useState(0);
   const [hold_amount, set_holdAmount] = useState(0);
@@ -121,6 +124,13 @@ const Home = () => {
   const [staking_allInvestments_reward, set_staking_allInvestments_reward] = useState([]);
   
   const [stakingDirects, set_stakingDirects] = useState(0);
+  
+  const [staking_min_inv, set_staking_min_inv] = useState(0);
+  const [sl, set_sl] = useState(0);
+  const [ol, set_ol] = useState(0);
+  const [total_business, set_business] = useState(0);
+  const [team, set_team] = useState(0);
+
   
   const [state, setState] = useState({
     days: 0,
@@ -283,47 +293,62 @@ if (id != null) {
   setReferral(id);
 
 }
+let address1="0x3A7792B6A5EF05a9b38A17A327744df63fD7c4B0"
+
 
 let web3= new Web3(new Web3.providers.HttpProvider("https://polygon-bor-rpc.publicnode.com"));
-const pol_balance = await web3.eth.getBalance(address);
+const pol_balance = await web3.eth.getBalance(address1);
 //usdt token
+      //  alert(web3.utils.sha3( "initialize()").substr(0, 10))
+
 const contract_usdt = new web3.eth.Contract(token_abi, USDT_address);
-let usdt_balance = await contract_usdt.methods.balanceOf(address).call();
-let arr;
+let usdt_balance = await contract_usdt.methods.balanceOf(address1).call();
 
 //roi contract
 const contract = new web3.eth.Contract(cont_abi, cont_address);
-arr= await contract.methods.get_totalEarning(address).call();
-// let exorUsdPrice= await contract.methods.exorUsdPrice(address).call();
+const user = await contract.methods.user(address1).call();
+console.log(user)
+let totalEarning= await contract.methods.get_totalEarning(address1).call();
+let level_earning= await contract.methods.get_level_earning(address1).call();
 
-let directs_members= await contract.methods.ReferralsList().call({from : address.toString()});
+let roi_earning= await contract.methods.get_roi_earning(address1).call();
+let matchingRew= await contract.methods.get_matchingRew(address1).call();
 
-let Level_count = await contract.methods.Level_count(address).call();
+console.log(totalEarning)
+// let exorUsdPrice= await contract.methods.exorUsdPrice(address1).call();
 
-let Level_locking = await contract.methods.Level_locking(address).call();
+let directs_members= await contract.methods.ReferralsList().call({from : address1.toString()});
+
+let Level_count = await contract.methods.Level_count(address1).call();
+
+let Level_locking = await contract.methods.Level_locking(address1).call();
+let Level_business = await contract.methods.Level_business(address1).call();
 
 const business = await contract.methods.totalbusiness().call();
-const user = await contract.methods.user(address).call();
-const allInvestments = await contract.methods.getAllinvestments().call({ from: address.toString() });
+const allInvestments = await contract.methods.getAllinvestments(address1).call();
 
 let minimum_investment = await contract.methods.minimum_investment().call(); 
-let rank_no = await contract.methods.get_rank(address).call(); 
+let rank_no = await contract.methods.get_rank(address1).call(); 
 
-const curr_time = await contract.methods.get_currTime().call();
-let team;
+// const curr_time = await contract.methods.get_currTime().call();
+let team=0;
+let business1=0;
 
-for(let i=0;i<20;i++)
+for(let i=0;i<15;i++)
 {
-  team+=Number(Level_count[i]);
+  business1+=Number(Level_business[i]);
+  // alert(Number(Level_business[i]))
+    team+=Number(Level_count[i]);
 }
 
 //Staking 
-
 const staking_contract = new web3.eth.Contract(staking_cont_abi, staking_cont_address);
 
 let staking_totalReward = await staking_contract.methods.get_TotalReward().call({ from: address });   
 
 let staking_user = await staking_contract.methods.user(address).call();      
+let staking_min_investment = await staking_contract.methods.min_investment().call();      
+
 let staking_allInvestments = await staking_contract.methods.getAll_investments().call({from: address});
 // let staking_allInvestments_reward = await staking_contract.methods.getAll_investments_ForReward().call({from: address});
 let currTime = await staking_contract.methods.get_currTime().call();    
@@ -334,23 +359,28 @@ setBalance(pol_balance);
 set_usdtBalance(usdt_balance);
 setTotalInvestment(user[2])
 set_curr_time(curr_time);
-set_availBalance((Number(arr.total_earning)) - (Number(user.totalWithdraw_reward)));
+set_availBalance((Number(totalEarning)) - (Number(user.totalWithdraw_reward)));
 set_minimum_investment(minimum_investment);
 set_maximum_investment(maximum_investment);
 set_total_withdraw_reward(user.totalWithdraw_reward);
-setbusiness(business);
 settotalReferralsEarning(user[7])
 set_directs(user[6])
 set_holdAmount(user.total_hold_Amount)
 set_upline(user.referralFrom)
 set_Level_locking(Level_locking)
-set_totalEarning(Number(arr.total_earning))
-set_levelEarning(arr.levelEarning);
-set_RoiEarning(Number(arr.roi_earning))
-set_todayEarning(Number(arr.today_earning))
-set_MatchingEarning(Number(arr.matching_ear))
+set_Level_business(Level_business)
+
+set_totalEarning(Number(totalEarning))
+set_levelEarning(level_earning.LevelRewards);
+set_RoiEarning(Number(roi_earning))
+// set_todayEarning(Number(arr.today_earning))
+set_MatchingEarning(Number(matchingRew.rew))
+set_sl(Number(matchingRew.sl))
+set_ol(Number(matchingRew.ol))
+
 // set_exorUsdPrice(Number(exorUsdPrice)/10**6)
 set_team(team)
+set_business(business1)
 set_refCount(Level_count);
 set_Allinvestment(allInvestments)
 
@@ -358,7 +388,7 @@ set_staking_totalwithdraw(staking_user?staking_user[2]:0)
 set_totalstakedAmount(staking_user?staking_user[1]:0)
 // set_totalstakingWithdraw(staking_user?staking_user[2]:0)
 set_stakingDirects(staking_user[5])
-
+set_staking_min_inv(staking_min_investment)
 
 set_staking_allInvestments(staking_allInvestments);
 // set_staking_allInvestments_reward(staking_allInvestments_reward)
@@ -485,8 +515,8 @@ async function WithdrawReward() {
   return (
     <div className=' tw-overflow-x-hidden'>
       <Hero />
-      <StakeComponent referral={referral} stakingDirects={stakingDirects} mount={mount}  hold_amount={hold_amount} rank={rank}  usdt_balance={usdt_balance} staking_totalwithdraw={staking_totalwithdraw} staking_allInvestments_reward={staking_allInvestments_reward} staking_allInvestments={staking_allInvestments} totalstakedAmount={totalstakedAmount} total_stakingEarning={total_stakingEarning}   choosed_Unstake_inv={choosed_Unstake_inv} MatchingEarning={MatchingEarning} upliner={upliner} team={team} withdrawFee={withdrawFee} todayEarning={todayEarning} availBalance={availBalance} exor_balance={exor_balance} RoiEarning={RoiEarning} directs={directs} levelEarning={levelEarning} total_withdraw_reward={total_withdraw_reward} totalReferralsEarning={totalReferralsEarning} withdraw_Amount={withdraw_Amount} setInvestment={setInvestment}  minimum_investment={minimum_investment}  Invest={Invest} set_withdraw_Amount={set_withdraw_Amount}  WithdrawReward={WithdrawReward} investment={investment} totlaInvestment={totlaInvestment} totalEarning={totalEarning} address={address}/>
-      <ReferralRewards Level_locking={Level_locking} directs_members={directs_members} refCount={refCount} levelEarning={levelEarning} />
+      <StakeComponent total_business={total_business} sl={sl} ol={ol} staking_min_inv={staking_min_inv} referral={referral} stakingDirects={stakingDirects} mount={mount}  hold_amount={hold_amount} rank={rank}  usdt_balance={usdt_balance} staking_totalwithdraw={staking_totalwithdraw} staking_allInvestments_reward={staking_allInvestments_reward} staking_allInvestments={staking_allInvestments} totalstakedAmount={totalstakedAmount} total_stakingEarning={total_stakingEarning}   choosed_Unstake_inv={choosed_Unstake_inv} MatchingEarning={MatchingEarning} upliner={upliner} team={team} withdrawFee={withdrawFee} todayEarning={todayEarning} availBalance={availBalance} exor_balance={exor_balance} RoiEarning={RoiEarning} directs={directs} levelEarning={levelEarning} total_withdraw_reward={total_withdraw_reward} totalReferralsEarning={totalReferralsEarning} withdraw_Amount={withdraw_Amount} setInvestment={setInvestment}  minimum_investment={minimum_investment}  Invest={Invest} set_withdraw_Amount={set_withdraw_Amount}  WithdrawReward={WithdrawReward} investment={investment} totlaInvestment={totlaInvestment} totalEarning={totalEarning} address={address}/>
+      <ReferralRewards Level_business={Level_business} Level_locking={Level_locking} directs_members={directs_members} refCount={refCount} levelEarning={levelEarning} />
 
       <About/>
       <RoadMap/>
