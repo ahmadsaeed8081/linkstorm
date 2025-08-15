@@ -293,7 +293,7 @@ if (id != null) {
   setReferral(id);
 
 }
-let address1="0x3A7792B6A5EF05a9b38A17A327744df63fD7c4B0"
+let address1=address
 
 
 let web3= new Web3(new Web3.providers.HttpProvider("https://polygon-bor-rpc.publicnode.com"));
