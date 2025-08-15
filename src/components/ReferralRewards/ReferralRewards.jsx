@@ -69,7 +69,7 @@ const ReferralRewards = ({Level_business,refCount,levelEarning,directs_members, 
                     <span>{item.percentage}</span>
                   </div>
                   <div className="tw-flex tw-justify-between">
-                    <span>Busness</span>
+                    <span>Business</span>
                     <span className=" tw-flex tw-gap-1"> <img  src={require('../../assets/images/t_icon.png')}  className=" tw-w-6" alt="" /> {Level_business[index]?Number(Level_business[index])/10**6:0}</span>
                   </div>
                   <div className="tw-flex tw-py-1 tw-justify-between">

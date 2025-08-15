@@ -217,7 +217,7 @@ const StakeComponent = (props) => {
                     <h6 className="   tw-text-white  tw-font-inter ">
                     Super Leg Balance
                   </h6>
-                  <img onClick={()=>setIsModalOpen(true)} src={require('../../assets/images/bouns.png')} alt="" />
+                  {/* <img onClick={()=>setIsModalOpen(true)} src={require('../../assets/images/bouns.png')} alt="" /> */}
                   </div>
                   <span className="  tw-text-white  tw-font-medium  tw-font-inter tw-text-2xl">
                   {(Number(props.sl)/10**6)} 
@@ -232,7 +232,7 @@ const StakeComponent = (props) => {
                     <h6 className="   tw-text-white  tw-font-inter ">
                     Other Legs Balance
                   </h6>
-                  <img onClick={()=>setIsModalOpen(true)} src={require('../../assets/images/bouns.png')} alt="" />
+                  {/* <img onClick={()=>setIsModalOpen(true)} src={require('../../assets/images/bouns.png')} alt="" /> */}
                   </div>
                   <span className="  tw-text-white  tw-font-medium  tw-font-inter tw-text-2xl">
                   {(Number(props.ol)/10**6)} 
@@ -246,7 +246,7 @@ const StakeComponent = (props) => {
                     <h6 className="   tw-text-white  tw-font-inter ">
                     Total Team
                   </h6>
-                  <img onClick={()=>setIsModalOpen(true)} src={require('../../assets/images/bouns.png')} alt="" />
+                  {/* <img onClick={()=>setIsModalOpen(true)} src={require('../../assets/images/bouns.png')} alt="" /> */}
                   </div>
                   <span className="  tw-text-white  tw-font-medium  tw-font-inter tw-text-2xl">
                   {(Number(props.team))} 
@@ -260,7 +260,7 @@ const StakeComponent = (props) => {
                     <h6 className="   tw-text-white  tw-font-inter ">
                     Total Team Business
                   </h6>
-                  <img onClick={()=>setIsModalOpen(true)} src={require('../../assets/images/bouns.png')} alt="" />
+                  {/* <img onClick={()=>setIsModalOpen(true)} src={require('../../assets/images/bouns.png')} alt="" /> */}
                   </div>
                   <span className="  tw-text-white  tw-font-medium  tw-font-inter tw-text-2xl">
                   {(Number(props.total_business)/10**6)} 
